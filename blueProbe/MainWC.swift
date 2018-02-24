@@ -10,12 +10,44 @@ import Cocoa
 
 class MainWC: NSWindowController {
 
+    @IBOutlet weak var pathstr: NSTextField!
+
+    let openPP = NSOpenPanel()
     override func windowDidLoad() {
         super.windowDidLoad()
-        self.window?.backgroundColor = NSColor.red
+        self.window?.backgroundColor = NSColor.white
         self.window?.title = "主界面"
    
-        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+        
     }
     
+    @IBAction func getPathBtn(_ sender: Any) {
+        
+        
+        openPP.allowsMultipleSelection = false
+        openPP.canChooseDirectories    = true
+        openPP.canChooseFiles          = true
+        
+        openPP.begin(completionHandler: { (result) in
+            
+            if result.rawValue == NSFileHandlingPanelOKButton {
+
+                print("NSFileHandlingPanelOKButton")
+                print(self.openPP.urls)
+                self.pathstr.stringValue = (self.openPP.urls.first?.absoluteString)!
+                
+            }
+            
+            if result.rawValue == NSFileHandlingPanelCancelButton {
+                
+                print("NSFileHandlingPanelCancelButton")
+                
+                
+            }
+
+            
+        })
+
+        
+    }
 }
