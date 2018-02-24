@@ -16,7 +16,7 @@ class MainWC: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         self.window?.backgroundColor = NSColor.white
-        self.window?.title = "主界面"
+        self.window?.title = "蓝色探针"
    
         
     }
@@ -26,15 +26,15 @@ class MainWC: NSWindowController {
         
         openPP.allowsMultipleSelection = false
         openPP.canChooseDirectories    = true
-        openPP.canChooseFiles          = true
+        openPP.canChooseFiles          = false
         
         openPP.begin(completionHandler: { (result) in
             
             if result.rawValue == NSFileHandlingPanelOKButton {
 
                 print("NSFileHandlingPanelOKButton")
-                print(self.openPP.urls)
-                self.pathstr.stringValue = (self.openPP.urls.first?.absoluteString)!
+                print(self.openPP.url?.path as Any)
+                self.pathstr.stringValue = (self.openPP.url?.path)!
                 
             }
             
