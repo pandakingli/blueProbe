@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1D1703C69B38910BD019986 /* Pods_blueProbe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5205171484A6EABD3A786616 /* Pods_blueProbe.framework */; };
+		E65EB9C32041599B0080578D /* probeGo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB9C22041599B0080578D /* probeGo.swift */; };
+		E65EB9C5204167170080578D /* ParserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB9C4204167170080578D /* ParserType.swift */; };
+		E65EB9C7204167380080578D /* BPClassNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB9C6204167380080578D /* BPClassNode.swift */; };
 		E6CF0E20201A27C20009A17C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CF0E1F201A27C20009A17C /* AppDelegate.swift */; };
 		E6CF0E22201A27C20009A17C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6CF0E21201A27C20009A17C /* Assets.xcassets */; };
 		E6CF0E25201A27C20009A17C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6CF0E23201A27C20009A17C /* MainMenu.xib */; };
@@ -15,6 +19,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		347E3AB13CDE306918264F0F /* Pods-blueProbe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blueProbe.release.xcconfig"; path = "Pods/Target Support Files/Pods-blueProbe/Pods-blueProbe.release.xcconfig"; sourceTree = "<group>"; };
+		5205171484A6EABD3A786616 /* Pods_blueProbe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_blueProbe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B972E6E13F4A54426991312D /* Pods-blueProbe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blueProbe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-blueProbe/Pods-blueProbe.debug.xcconfig"; sourceTree = "<group>"; };
+		E65EB9C22041599B0080578D /* probeGo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = probeGo.swift; sourceTree = "<group>"; };
+		E65EB9C4204167170080578D /* ParserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserType.swift; sourceTree = "<group>"; };
+		E65EB9C6204167380080578D /* BPClassNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPClassNode.swift; sourceTree = "<group>"; };
 		E6CF0E1C201A27C20009A17C /* blueProbe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blueProbe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6CF0E1F201A27C20009A17C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6CF0E21201A27C20009A17C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -30,17 +40,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1D1703C69B38910BD019986 /* Pods_blueProbe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61B0810C338E6A5E47D71791 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B972E6E13F4A54426991312D /* Pods-blueProbe.debug.xcconfig */,
+				347E3AB13CDE306918264F0F /* Pods-blueProbe.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DC15565C09D6FF9F66B5521B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5205171484A6EABD3A786616 /* Pods_blueProbe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E6CF0E13201A27C20009A17C = {
 			isa = PBXGroup;
 			children = (
 				E6CF0E1E201A27C20009A17C /* blueProbe */,
 				E6CF0E1D201A27C20009A17C /* Products */,
+				61B0810C338E6A5E47D71791 /* Pods */,
+				DC15565C09D6FF9F66B5521B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +86,9 @@
 			isa = PBXGroup;
 			children = (
 				E6CF0E1F201A27C20009A17C /* AppDelegate.swift */,
+				E65EB9C22041599B0080578D /* probeGo.swift */,
+				E65EB9C4204167170080578D /* ParserType.swift */,
+				E65EB9C6204167380080578D /* BPClassNode.swift */,
 				E6CF0E2D201AAC050009A17C /* MainWC.swift */,
 				E6CF0E2E201AAC050009A17C /* MainWC.xib */,
 				E6CF0E21201A27C20009A17C /* Assets.xcassets */,
@@ -73,9 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6CF0E2A201A27C20009A17C /* Build configuration list for PBXNativeTarget "blueProbe" */;
 			buildPhases = (
+				F44D2B28694C00E43C97D3B8 /* [CP] Check Pods Manifest.lock */,
 				E6CF0E18201A27C20009A17C /* Sources */,
 				E6CF0E19201A27C20009A17C /* Frameworks */,
 				E6CF0E1A201A27C20009A17C /* Resources */,
+				D8135F30AB27C09B75852211 /* [CP] Embed Pods Frameworks */,
+				F0FEC1F23EEF62FA4CCC44BF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -133,13 +169,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D8135F30AB27C09B75852211 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-blueProbe/Pods-blueProbe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0FEC1F23EEF62FA4CCC44BF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-blueProbe/Pods-blueProbe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F44D2B28694C00E43C97D3B8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E6CF0E18201A27C20009A17C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E65EB9C32041599B0080578D /* probeGo.swift in Sources */,
 				E6CF0E2F201AAC050009A17C /* MainWC.swift in Sources */,
+				E65EB9C5204167170080578D /* ParserType.swift in Sources */,
 				E6CF0E20201A27C20009A17C /* AppDelegate.swift in Sources */,
+				E65EB9C7204167380080578D /* BPClassNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +352,7 @@
 		};
 		E6CF0E2B201A27C20009A17C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B972E6E13F4A54426991312D /* Pods-blueProbe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = blueProbe/blueProbe.entitlements;
@@ -281,6 +369,7 @@
 		};
 		E6CF0E2C201A27C20009A17C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 347E3AB13CDE306918264F0F /* Pods-blueProbe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = blueProbe/blueProbe.entitlements;
