@@ -13,14 +13,17 @@ class MainWC: NSWindowController {
     @IBOutlet weak var pathstr: NSTextField!
 
     let openPP = NSOpenPanel()
+    let gMaker = probeGo()
+    
     override func windowDidLoad() {
         super.windowDidLoad()
         self.window?.backgroundColor = NSColor.white
         self.window?.title = "蓝色探针"
-   
+        
         
     }
     
+ 
     @IBAction func getPathBtn(_ sender: Any) {
         
         
@@ -50,4 +53,19 @@ class MainWC: NSWindowController {
 
         
     }
+    
+    @IBAction func makeGraphBtn(_ sender: Any) {
+        
+        
+        
+        gMaker.keywords = []
+        //gMaker.mode = .inheritGraph
+        //gMaker.selfOnly = false
+        gMaker.bp_paths = self.pathstr.stringValue
+        gMaker.doMakeG()
+        
+        
+        
+    }
+    
 }

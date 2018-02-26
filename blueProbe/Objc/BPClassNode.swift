@@ -11,15 +11,18 @@ import Cocoa
 class BPClassNode: Node {
     
     var superKlass: String? = nil
-    var className: String = ""
-    var protocols: [String] = []
+    var klassName: String = ""
+    var kprotocols: [String] = []
     
     init(_ name: String, _ superClass: String?, _ protos: [String]) {
+        
         if let superClass = superClass, !superClass.isEmpty {
             superKlass = superClass
         }
-        className = name
-        protocols = protos
+        
+        klassName  = name
+        kprotocols = protos
+        
     }
 }
 
@@ -34,20 +37,22 @@ extension BPClassNode {
 }
 
 extension BPClassNode: CustomStringConvertible {
+   
     var description: String {
-        var desc = "{class: \(className)"
+        var desc = "{class: \(klassName)"
         
-        if let superCls = superClass {
+        if let superCls = superKlass {
             desc.append(contentsOf: ", superClass: \(superCls)")
         }
         
-        if protocols.count > 0 {
-            desc.append(contentsOf: ", protocols: \(protocols.joined(separator: ", "))")
+        if kprotocols.count > 0 {
+            desc.append(contentsOf: ", protocols: \(kprotocols.joined(separator: ", "))")
         }
         
         desc.append(contentsOf: "}")
         return desc
     }
+    
 }
 
 // MARK: - Merge
@@ -55,14 +60,14 @@ extension BPClassNode: CustomStringConvertible {
 extension BPClassNode {
  
     func merge(_ node: BPClassNode) {
-        for proto in node.protocols {
-            if !protocols.contains(proto) {
-                protocols.append(proto)
+        for proto in node.kprotocols {
+            if !kprotocols.contains(proto) {
+                kprotocols.append(proto)
             }
         }
         
-        if superCls == nil && node.superCls != nil {
-            superCls = node.superCls
+        if superKlass == nil && node.superKlass != nil {
+            superKlass = node.superKlass
         }
     }
 }
@@ -103,10 +108,10 @@ extension Array where Element == BPClassNode {
 
 extension BPClassNode: Hashable {
     static func ==(lhs: BPClassNode, rhs: BPClassNode) -> Bool {
-        return lhs.className == rhs.className
+        return lhs.klassName == rhs.klassName
     }
     
     var hashValue: Int {
-        return className.hashValue
+        return klassName.hashValue
     }
 }

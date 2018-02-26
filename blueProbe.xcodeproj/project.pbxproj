@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A8AA8DF2043AFCA00B3992D /* BPProtocolNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8DE2043AFCA00B3992D /* BPProtocolNode.swift */; };
+		0A8AA8E12043B10D00B3992D /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8E02043B10D00B3992D /* Lexer.swift */; };
+		0A8AA8E32043B15300B3992D /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8E22043B15300B3992D /* Token.swift */; };
+		0A8AA8E52043B41700B3992D /* OCInterfaceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8E42043B41700B3992D /* OCInterfaceParser.swift */; };
+		0A8AA8E72043B44600B3992D /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8E62043B44600B3992D /* Parser.swift */; };
+		0A8AA8EA2043B88B00B3992D /* Functor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8E92043B88B00B3992D /* Functor.swift */; };
+		0A8AA8EC2043B8F600B3992D /* Alternative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8EB2043B8F600B3992D /* Alternative.swift */; };
+		0A8AA8EE2043B90D00B3992D /* Applicative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8ED2043B90D00B3992D /* Applicative.swift */; };
+		0A8AA8F02043B92600B3992D /* Monad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8EF2043B92600B3992D /* Monad.swift */; };
+		0A8AA8F22043B93C00B3992D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8F12043B93C00B3992D /* Extensions.swift */; };
+		0A8AA8F42043B9E800B3992D /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8F32043B9E800B3992D /* Operator.swift */; };
+		0A8AA8F82043BCD300B3992D /* ParserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8F72043BCD300B3992D /* ParserResult.swift */; };
+		0A8AA8FE2044036900B3992D /* SwiftInheritParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8FD2044036900B3992D /* SwiftInheritParser.swift */; };
+		0A8AA9002044040400B3992D /* SwiftProtocolParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8FF2044040400B3992D /* SwiftProtocolParser.swift */; };
+		0A8AA9022044041C00B3992D /* SwiftClassParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA9012044041C00B3992D /* SwiftClassParser.swift */; };
+		0A8AA9042044071000B3992D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA9032044071000B3992D /* Extension.swift */; };
+		0A8AA9062044076E00B3992D /* GraphMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA9052044076E00B3992D /* GraphMaker.swift */; };
+		0A8AA9082044094900B3992D /* GoMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA9072044094900B3992D /* GoMaker.swift */; };
 		D1D1703C69B38910BD019986 /* Pods_blueProbe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5205171484A6EABD3A786616 /* Pods_blueProbe.framework */; };
 		E65EB9C32041599B0080578D /* probeGo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB9C22041599B0080578D /* probeGo.swift */; };
 		E65EB9C5204167170080578D /* ParserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB9C4204167170080578D /* ParserType.swift */; };
@@ -19,6 +37,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A8AA8DE2043AFCA00B3992D /* BPProtocolNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPProtocolNode.swift; sourceTree = "<group>"; };
+		0A8AA8E02043B10D00B3992D /* Lexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lexer.swift; sourceTree = "<group>"; };
+		0A8AA8E22043B15300B3992D /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		0A8AA8E42043B41700B3992D /* OCInterfaceParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCInterfaceParser.swift; sourceTree = "<group>"; };
+		0A8AA8E62043B44600B3992D /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		0A8AA8E92043B88B00B3992D /* Functor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functor.swift; sourceTree = "<group>"; };
+		0A8AA8EB2043B8F600B3992D /* Alternative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alternative.swift; sourceTree = "<group>"; };
+		0A8AA8ED2043B90D00B3992D /* Applicative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicative.swift; sourceTree = "<group>"; };
+		0A8AA8EF2043B92600B3992D /* Monad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monad.swift; sourceTree = "<group>"; };
+		0A8AA8F12043B93C00B3992D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0A8AA8F32043B9E800B3992D /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
+		0A8AA8F72043BCD300B3992D /* ParserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserResult.swift; sourceTree = "<group>"; };
+		0A8AA8FD2044036900B3992D /* SwiftInheritParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftInheritParser.swift; sourceTree = "<group>"; };
+		0A8AA8FF2044040400B3992D /* SwiftProtocolParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftProtocolParser.swift; sourceTree = "<group>"; };
+		0A8AA9012044041C00B3992D /* SwiftClassParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftClassParser.swift; sourceTree = "<group>"; };
+		0A8AA9032044071000B3992D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		0A8AA9052044076E00B3992D /* GraphMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphMaker.swift; sourceTree = "<group>"; };
+		0A8AA9072044094900B3992D /* GoMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoMaker.swift; sourceTree = "<group>"; };
 		347E3AB13CDE306918264F0F /* Pods-blueProbe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blueProbe.release.xcconfig"; path = "Pods/Target Support Files/Pods-blueProbe/Pods-blueProbe.release.xcconfig"; sourceTree = "<group>"; };
 		5205171484A6EABD3A786616 /* Pods_blueProbe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_blueProbe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B972E6E13F4A54426991312D /* Pods-blueProbe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blueProbe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-blueProbe/Pods-blueProbe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -47,6 +83,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A8AA8E82043B87C00B3992D /* Combinator */ = {
+			isa = PBXGroup;
+			children = (
+				0A8AA8E92043B88B00B3992D /* Functor.swift */,
+				0A8AA8EB2043B8F600B3992D /* Alternative.swift */,
+				0A8AA8ED2043B90D00B3992D /* Applicative.swift */,
+				0A8AA8EF2043B92600B3992D /* Monad.swift */,
+				0A8AA8F12043B93C00B3992D /* Extensions.swift */,
+				0A8AA8F32043B9E800B3992D /* Operator.swift */,
+			);
+			path = Combinator;
+			sourceTree = "<group>";
+		};
+		0A8AA8FB204402E500B3992D /* Objc */ = {
+			isa = PBXGroup;
+			children = (
+				E65EB9C6204167380080578D /* BPClassNode.swift */,
+				0A8AA8DE2043AFCA00B3992D /* BPProtocolNode.swift */,
+			);
+			path = Objc;
+			sourceTree = "<group>";
+		};
+		0A8AA8FC204402F200B3992D /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				0A8AA8FD2044036900B3992D /* SwiftInheritParser.swift */,
+				0A8AA8FF2044040400B3992D /* SwiftProtocolParser.swift */,
+				0A8AA9012044041C00B3992D /* SwiftClassParser.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		0A8AA90920440B3900B3992D /* bpGo */ = {
+			isa = PBXGroup;
+			children = (
+				E65EB9C22041599B0080578D /* probeGo.swift */,
+				E65EB9C4204167170080578D /* ParserType.swift */,
+				0A8AA8E02043B10D00B3992D /* Lexer.swift */,
+				0A8AA8E22043B15300B3992D /* Token.swift */,
+				0A8AA8E62043B44600B3992D /* Parser.swift */,
+				0A8AA8E42043B41700B3992D /* OCInterfaceParser.swift */,
+				0A8AA8F72043BCD300B3992D /* ParserResult.swift */,
+				0A8AA9032044071000B3992D /* Extension.swift */,
+				0A8AA9052044076E00B3992D /* GraphMaker.swift */,
+				0A8AA9072044094900B3992D /* GoMaker.swift */,
+			);
+			path = bpGo;
+			sourceTree = "<group>";
+		};
 		61B0810C338E6A5E47D71791 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,10 +170,11 @@
 		E6CF0E1E201A27C20009A17C /* blueProbe */ = {
 			isa = PBXGroup;
 			children = (
+				0A8AA90920440B3900B3992D /* bpGo */,
+				0A8AA8FC204402F200B3992D /* Swift */,
+				0A8AA8FB204402E500B3992D /* Objc */,
+				0A8AA8E82043B87C00B3992D /* Combinator */,
 				E6CF0E1F201A27C20009A17C /* AppDelegate.swift */,
-				E65EB9C22041599B0080578D /* probeGo.swift */,
-				E65EB9C4204167170080578D /* ParserType.swift */,
-				E65EB9C6204167380080578D /* BPClassNode.swift */,
 				E6CF0E2D201AAC050009A17C /* MainWC.swift */,
 				E6CF0E2E201AAC050009A17C /* MainWC.xib */,
 				E6CF0E21201A27C20009A17C /* Assets.xcassets */,
@@ -176,9 +262,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-blueProbe/Pods-blueProbe-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Curry/Curry.framework",
+				"${BUILT_PRODUCTS_DIR}/Runes/Runes.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Curry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Runes.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -206,13 +297,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-blueProbe-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -222,11 +316,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A8AA9082044094900B3992D /* GoMaker.swift in Sources */,
 				E65EB9C32041599B0080578D /* probeGo.swift in Sources */,
+				0A8AA9022044041C00B3992D /* SwiftClassParser.swift in Sources */,
+				0A8AA8E52043B41700B3992D /* OCInterfaceParser.swift in Sources */,
+				0A8AA8E72043B44600B3992D /* Parser.swift in Sources */,
+				0A8AA8F82043BCD300B3992D /* ParserResult.swift in Sources */,
+				0A8AA8EE2043B90D00B3992D /* Applicative.swift in Sources */,
+				0A8AA8E12043B10D00B3992D /* Lexer.swift in Sources */,
+				0A8AA9062044076E00B3992D /* GraphMaker.swift in Sources */,
+				0A8AA8F42043B9E800B3992D /* Operator.swift in Sources */,
+				0A8AA9002044040400B3992D /* SwiftProtocolParser.swift in Sources */,
+				0A8AA9042044071000B3992D /* Extension.swift in Sources */,
 				E6CF0E2F201AAC050009A17C /* MainWC.swift in Sources */,
+				0A8AA8FE2044036900B3992D /* SwiftInheritParser.swift in Sources */,
 				E65EB9C5204167170080578D /* ParserType.swift in Sources */,
 				E6CF0E20201A27C20009A17C /* AppDelegate.swift in Sources */,
+				0A8AA8EC2043B8F600B3992D /* Alternative.swift in Sources */,
+				0A8AA8EA2043B88B00B3992D /* Functor.swift in Sources */,
+				0A8AA8F22043B93C00B3992D /* Extensions.swift in Sources */,
 				E65EB9C7204167380080578D /* BPClassNode.swift in Sources */,
+				0A8AA8DF2043AFCA00B3992D /* BPProtocolNode.swift in Sources */,
+				0A8AA8E32043B15300B3992D /* Token.swift in Sources */,
+				0A8AA8F02043B92600B3992D /* Monad.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
