@@ -2,7 +2,7 @@
 //  GraphMaker.swift
 //  blueProbe
 //
-//  Created by didi on 2018/2/26.
+//  Created by biubiu on 2018/2/26.
 //  Copyright © 2018年 biubiublue. All rights reserved.
 //
 
@@ -75,9 +75,14 @@ class GraphMaker {
     
     fileprivate func create(file filePath: String) -> String {
         // 写入文件
-        let filename = URL(fileURLWithPath: filePath).lastPathComponent
-        let dotFile = "./\(filename).dot"
-        let target = "./\(filename).png"
+       // let filename = URL(fileURLWithPath: filePath).lastPathComponent
+       let date = NSDate()
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        var showtimestr = timeFormatter.string(from: date as Date) as String
+        
+        let dotFile = "\(filePath+showtimestr).dot"
+        let target = "\(filePath+showtimestr).png"
         
         // 创建Dot文件
         if FileManager.default.fileExists(atPath: dotFile) {

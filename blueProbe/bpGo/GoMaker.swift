@@ -2,7 +2,7 @@
 //  GoMaker.swift
 //  blueProbe
 //
-//  Created by didi on 2018/2/26.
+//  Created by biubiu on 2018/2/26.
 //  Copyright © 2018年 biubiublue. All rights reserved.
 //
 
@@ -36,14 +36,15 @@ class GoMaker {
             let path = GoMaker.execute("/usr/bin/which", executable)
             return path.isEmpty ? nil : path
         }
-        
+        /*
         guard let path = pathForExecutable(executable: executable) else {
             print("Error: '\(executable)' not exist! \(help)")
             return ""
         }
+        */
         
         let process = Process()
-        process.launchPath = path
+        process.launchPath = "/usr/local/bin/dot" // path
         process.arguments = args
         
         let command = Command(process: process)

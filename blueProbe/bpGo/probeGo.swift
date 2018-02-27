@@ -121,7 +121,7 @@ class probeGo {
         classes = classes.filter({ ($0.klassName.contains(keywords))||($0.superKlass?.contains(keywords))! })
         //protocols = protocols.filter({ $0.name.contains(keywords) })
         
-        let resultPath = GraphMaker.generate(classes: classes, protocols: [], filePath: "Inheritance")
+        let resultPath = GraphMaker.generate(classes: classes, protocols: [], filePath: self.bp_paths+"/Inheritance")
         
     
         
