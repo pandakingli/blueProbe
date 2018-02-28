@@ -79,7 +79,7 @@ class GraphMaker {
        let date = NSDate()
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        var showtimestr = timeFormatter.string(from: date as Date) as String
+        let showtimestr = timeFormatter.string(from: date as Date) as String
         
         let dotFile = "\(filePath+showtimestr).dot"
         let target = "\(filePath+showtimestr).png"

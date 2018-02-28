@@ -30,7 +30,7 @@ class MainWC: NSWindowController {
         openPP.allowsMultipleSelection = false
         openPP.canChooseDirectories    = true
         openPP.canChooseFiles          = false
-        
+        openPP.directoryURL = URL.init(string: NSHomeDirectory())
         openPP.begin(completionHandler: { (result) in
             
             if result.rawValue == NSFileHandlingPanelOKButton {
