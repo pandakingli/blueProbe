@@ -36,15 +36,15 @@ class GoMaker {
             let path = GoMaker.execute("/usr/bin/which", executable)
             return path.isEmpty ? nil : path
         }
-        /*
+        
         guard let path = pathForExecutable(executable: executable) else {
             print("Error: '\(executable)' not exist! \(help)")
             return ""
         }
-        */
+ 
         
         let process = Process()
-        process.launchPath = "/usr/local/bin/dot" // path
+        process.launchPath = path//"/usr/local/bin/dot" // path
         process.arguments = args
         
         let command = Command(process: process)
@@ -64,23 +64,40 @@ class GoMaker {
 fileprivate class Command {
     
     private let outputHandle: FileHandle
+    private let erroutputHandle: FileHandle
     private let process: Process
+    private var outstring:String
     
     init(process: Process) {
         self.process = process
-        
+        self.outstring = ""
         let pipe = Pipe()
+        let errpipe = Pipe()
         self.process.standardOutput = pipe
+        self.process.standardError = errpipe
+        
         outputHandle = pipe.fileHandleForReading
+        erroutputHandle = errpipe.fileHandleForReading
     }
     
     func launch() {
         process.launch()
-        process.waitUntilExit()
+         process.waitUntilExit()
+        let data = outputHandle.readDataToEndOfFile()
+        
+        let errdata = erroutputHandle.readDataToEndOfFile()
+        
+            //outputHandle.readDataToEndOfFile()
+       // outpipe.fileHandleForReading.availableData
+        outstring =  String(data: data, encoding: .utf8) ?? ""
+        
+       
     }
     
     lazy var stdout: String = {
-        let data = outputHandle.readDataToEndOfFile()
-        return String(data: data, encoding: .utf8) ?? ""
+        //let data = outputHandle.readDataToEndOfFile()
+        //return String(data: data, encoding: .utf8) ?? ""
+        
+        return self.outstring
     }()
 }
