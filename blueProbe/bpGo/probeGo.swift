@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Cocoa
 
 let maxConcurrent: Int = 4  //多线程
 
@@ -123,18 +123,26 @@ class probeGo {
         
         let resultPath = GraphMaker.generate(classes: classes, protocols: [], filePath: self.bp_paths+"/Inheritance")
         
-    
+    /*
+        let openwen = NSOpenPanel()
+        openwen.allowsMultipleSelection = false
+        openwen.canChooseDirectories    = false
+        openwen.canChooseFiles          = false
+        openwen.directoryURL = URL.init(string: self.bp_paths)
+        openwen.begin { (result) in
+            
+        }
         
-        
+      */
         
         /*
          // Log result
          for node in classes {
          print(node)
          }
-         
-         Executor.execute("open", resultPath, help: "Auto open failed")
-         */
+          */
+         GoMaker.execute("open", self.bp_paths, help: "Auto open failed")
+ 
     }
     
 
