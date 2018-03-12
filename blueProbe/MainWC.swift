@@ -66,6 +66,9 @@ class MainWC: NSWindowController {
         
     }
     
+    @IBAction func quitBtn(_ sender: Any) {
+        exit(0)
+    }
     @IBAction func makeGraphBtn(_ sender: Any) {
         
         
