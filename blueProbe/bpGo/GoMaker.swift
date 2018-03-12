@@ -34,9 +34,9 @@ class GoMaker {
                 return executable
             }
             
-            if executable == "dot"
+            if executable == "dot"||executable == "fdp"||executable == "neato"||executable == "twopi"||executable == "circo"||executable == "sfdp" 
             {
-                return "/usr/local/bin/dot"
+                return "/usr/local/bin/"+executable
             }
             
             let path = GoMaker.execute("/usr/bin/which", executable)

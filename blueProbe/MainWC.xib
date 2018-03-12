@@ -8,7 +8,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainWC" customModule="blueProbe" customModuleProvider="target">
             <connections>
+                <outlet property="outButton" destination="X1I-j6-NsD" id="Mmo-vK-YKj"/>
                 <outlet property="pathstr" destination="WrN-Bm-nsI" id="zXk-uc-naC"/>
+                <outlet property="styleButton" destination="Bvu-aO-Tvs" id="TAk-Zj-LrJ"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -44,7 +46,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SVh-kc-aPR">
-                        <rect key="frame" x="0.0" y="138" width="480" height="19"/>
+                        <rect key="frame" x="0.0" y="76" width="480" height="19"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="开始生成继承图" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qWf-Cs-nt7">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -54,6 +56,54 @@
                             </connections>
                         </buttonCell>
                     </button>
+                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bvu-aO-Tvs">
+                        <rect key="frame" x="18" y="100" width="76" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="dot" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="fJ6-1U-GyJ" id="K6E-6l-WPc">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="nC1-6b-cAk">
+                                <items>
+                                    <menuItem title="dot" state="on" id="fJ6-1U-GyJ"/>
+                                    <menuItem title="Item 2" id="Z3v-EB-EUv"/>
+                                    <menuItem title="Item 3" id="klB-h4-unK"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1I-j6-NsD">
+                        <rect key="frame" x="112" y="100" width="76" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="svg" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="4or-fc-gLj" id="elU-Oe-BOt">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="8ag-LZ-3Om">
+                                <items>
+                                    <menuItem title="svg" state="on" id="4or-fc-gLj"/>
+                                    <menuItem title="Item 2" id="yYn-yx-CP7"/>
+                                    <menuItem title="Item 3" id="aBK-dk-h5s"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eW8-rF-rbL">
+                        <rect key="frame" x="120" y="126" width="58" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="输出格式" id="J7i-ut-D9S">
+                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6df-cX-Ezp">
+                        <rect key="frame" x="26" y="126" width="31" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="类型" id="uU2-9t-S6P">
+                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <connections>

@@ -8,8 +8,13 @@
 
 import Cocoa
 
+let kStyleItems = ["dot","neato","fdp","sfdp","twopi","circo"]
+let kOutPutItems = ["svg","png","pdf","bmp","gif","jpeg","jpg","ico","json","psd","tiff","webp"]
+
 class MainWC: NSWindowController {
 
+    @IBOutlet weak var outButton: NSPopUpButton!
+    @IBOutlet weak var styleButton: NSPopUpButton!
     @IBOutlet weak var pathstr: NSTextField!
 
     let openPP = NSOpenPanel()
@@ -20,6 +25,13 @@ class MainWC: NSWindowController {
         self.window?.backgroundColor = NSColor.white
         self.window?.title = "蓝色探针"
         
+        self.outButton.removeAllItems()
+        self.outButton.addItems(withTitles: kOutPutItems)
+        self.outButton.selectItem(at: 0)
+        
+        self.styleButton.removeAllItems()
+        self.styleButton.addItems(withTitles: kStyleItems)
+        self.styleButton.selectItem(at: 0)
         
     }
     
@@ -61,6 +73,8 @@ class MainWC: NSWindowController {
         gMaker.keywords = []
         //gMaker.mode = .inheritGraph
         //gMaker.selfOnly = false
+        gMaker.styleStr = (self.styleButton.selectedItem?.title)!
+        gMaker.outStr = (self.outButton.selectedItem?.title)!
         gMaker.bp_paths = self.pathstr.stringValue
         gMaker.doMakeG()
         

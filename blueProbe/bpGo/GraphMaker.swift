@@ -21,7 +21,7 @@ class GraphMaker {
     ///   - protocols: 协议节点数据
     ///   - filePath:  路径，作为结果图片命名的前缀
     @discardableResult
-    static func generate(classes clsNodes: [BPClassNode], protocols: [BPProtocolNode], filePath: String) -> String {
+    static func generate(classes clsNodes: [BPClassNode], protocols: [BPProtocolNode], filePath: String, styleStr: String, outStr: String) -> String {
         let dot = GraphMaker()
         var nodesSet = Set<String>()
         
@@ -63,7 +63,7 @@ class GraphMaker {
         
         dot.end()
         
-        return dot.create(file: filePath)
+        return dot.create(file: filePath, styleStr: styleStr, outStr: outStr)
     }
     
     //Swift3.0 iOS获取当前时间 - 年月日时分秒星期
@@ -113,7 +113,7 @@ class GraphMaker {
     
     fileprivate var dot: String = ""
     
-    fileprivate func create(file filePath: String) -> String {
+    fileprivate func create(file filePath: String, styleStr: String, outStr: String) -> String {
         // 写入文件
        // let filename = URL(fileURLWithPath: filePath).lastPathComponent
        let date = NSDate()
@@ -124,7 +124,7 @@ class GraphMaker {
         let datetimeStr = self.getTimeString()
         
         let dotFile = "\(filePath+datetimeStr).dot"
-        let target = "\(filePath+datetimeStr).png"
+        let target = "\(filePath+datetimeStr)."+outStr
         
         // 创建Dot文件
         if FileManager.default.fileExists(atPath: dotFile) {
@@ -133,7 +133,7 @@ class GraphMaker {
         _ = FileManager.default.createFile(atPath: dotFile, contents: dot.data(using: .utf8), attributes: nil)
         
         // 生成png
-        GoMaker.execute("dot", "-T", "png", dotFile, "-o", "\(target)", help: "Make sure Graphviz is successfully installed.")
+        GoMaker.execute(styleStr, "-T", outStr, dotFile, "-o", "\(target)", help: "Make sure Graphviz is successfully installed.")
         
         // 删除.dot文件
         //try? FileManager.default.removeItem(at: URL(fileURLWithPath: dotFile))
