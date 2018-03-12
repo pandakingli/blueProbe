@@ -33,6 +33,12 @@ class GoMaker {
             guard !executable.contains("/") else {
                 return executable
             }
+            
+            if executable == "dot"
+            {
+                return "/usr/local/bin/dot"
+            }
+            
             let path = GoMaker.execute("/usr/bin/which", executable)
             return path.isEmpty ? nil : path
         }

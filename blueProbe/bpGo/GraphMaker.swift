@@ -66,6 +66,46 @@ class GraphMaker {
         return dot.create(file: filePath)
     }
     
+    //Swift3.0 iOS获取当前时间 - 年月日时分秒星期
+    
+    func getTimes() -> [Int] {
+        
+        var timers: [Int] = [] //  返回的数组
+        
+        let calendar: Calendar = Calendar(identifier: .gregorian)
+        var comps: DateComponents = DateComponents()
+        comps = calendar.dateComponents([.year,.month,.day, .weekday, .hour, .minute,.second], from: Date())
+        
+        timers.append(comps.year! % 2000)  // 年 ，后2位数
+        timers.append(comps.month!)            // 月
+        timers.append(comps.day!)                // 日
+        timers.append(comps.hour!)               // 小时
+        timers.append(comps.minute!)            // 分钟
+        timers.append(comps.second!)            // 秒
+        timers.append(comps.weekday! - 1)      //星期
+        
+        return timers;
+    }
+    
+    
+    func getTimeString() -> String {
+        
+        var timeStr = String()
+        
+        let calendar: Calendar = Calendar(identifier: .gregorian)
+        var comps: DateComponents = DateComponents()
+        comps = calendar.dateComponents([.year,.month,.day, .weekday, .hour, .minute,.second], from: Date())
+        
+        timeStr.append("\(comps.year!)")
+        timeStr.append("-"+"\(comps.month!)")
+        timeStr.append("-"+"\(comps.day!)")
+        timeStr.append("-"+"\(comps.hour!)")
+        timeStr.append("\(comps.minute!)")
+        timeStr.append("\(comps.second!)")
+        
+        
+        return timeStr;
+    }
 
     
     
@@ -81,8 +121,10 @@ class GraphMaker {
         timeFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let showtimestr = timeFormatter.string(from: date as Date) as String
         
-        let dotFile = "\(filePath+showtimestr).dot"
-        let target = "\(filePath+showtimestr).png"
+        let datetimeStr = self.getTimeString()
+        
+        let dotFile = "\(filePath+datetimeStr).dot"
+        let target = "\(filePath+datetimeStr).png"
         
         // 创建Dot文件
         if FileManager.default.fileExists(atPath: dotFile) {
