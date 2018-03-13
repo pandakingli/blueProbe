@@ -25,7 +25,15 @@ class GraphMaker {
         let dot = GraphMaker()
         var nodesSet = Set<String>()
         
+        
+        
+        
+        
         dot.begin(name: "Inheritance")
+         let center = BPSettingCenter.sharedInstance
+        
+        
+        
         
         // class node
         for cls in clsNodes {
@@ -35,13 +43,20 @@ class GraphMaker {
                 dot.append(cls, label: "\(cls.klassName)")
             }
             
-            for proto in cls.kprotocols {
-                if !nodesSet.contains(proto) {
-                    nodesSet.insert(proto)
-                    dot.append(proto, label: "<<protocol>>\n\(proto)")
+           
+            if center.haveProtocols
+            {
+                for proto in cls.kprotocols {
+                    if !nodesSet.contains(proto) {
+                        nodesSet.insert(proto)
+                        dot.append(proto, label: "<<protocol>>\n\(proto)")
+                    }
+                    dot.point(from: cls, to: proto, emptyArrow: true, dashed: true)
                 }
-                dot.point(from: cls, to: proto, emptyArrow: true, dashed: true)
+                
+               
             }
+            
             
             // 父类
             if let superCls = cls.superKlass {
@@ -53,13 +68,17 @@ class GraphMaker {
             }
         }
         
-        // 剩余的Protocol
-        for proto in protocols {
-            if !nodesSet.contains(proto.name) {
-                nodesSet.insert(proto.name)
-                dot.append(proto, label: "<<protocol>>\n\(proto.name)")
+        if center.haveProtocols
+        {
+            // 剩余的Protocol
+            for proto in protocols {
+                if !nodesSet.contains(proto.name) {
+                    nodesSet.insert(proto.name)
+                    dot.append(proto, label: "<<protocol>>\n\(proto.name)")
+                }
             }
         }
+        
         
         dot.end()
         
@@ -147,7 +166,7 @@ class GraphMaker {
 fileprivate extension GraphMaker {
     
     func begin(name: String) {
-        dot.append(contentsOf: "digraph \(name) { node [shape=\"record\"];")
+        dot.append(contentsOf: "digraph \(name) { node [shape=\"record\"];"+"rankdir ="+BPSettingCenter.sharedInstance.tblr+";")
     }
     
     func end() {

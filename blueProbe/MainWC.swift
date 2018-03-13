@@ -8,11 +8,22 @@
 
 import Cocoa
 
+enum makeBPMode: NSInteger {
+    
+    case inheritGO = 0
+    case invokeGO  = 1
+    
+}
+
+let kModeItems = ["继承图","调用图"]
 let kStyleItems = ["dot","neato","fdp","sfdp","twopi","circo"]
 let kOutPutItems = ["svg","png","pdf","bmp","gif","jpeg","jpg","ico","json","psd","tiff","webp"]
 
 class MainWC: NSWindowController {
 
+    @IBOutlet weak var superSelect: NSPopUpButton!
+    @IBOutlet weak var modeSelectBtn: NSPopUpButton!
+    @IBOutlet weak var protocolSwitch: NSButton!
     @IBOutlet weak var outButton: NSPopUpButton!
     @IBOutlet weak var styleButton: NSPopUpButton!
     @IBOutlet weak var pathstr: NSTextField!
@@ -32,6 +43,10 @@ class MainWC: NSWindowController {
         self.styleButton.removeAllItems()
         self.styleButton.addItems(withTitles: kStyleItems)
         self.styleButton.selectItem(at: 0)
+        
+        self.modeSelectBtn.removeAllItems()
+        self.modeSelectBtn.addItems(withTitles: kModeItems)
+        self.modeSelectBtn.selectItem(at: 0)
         
     }
     
@@ -69,19 +84,35 @@ class MainWC: NSWindowController {
     @IBAction func quitBtn(_ sender: Any) {
         exit(0)
     }
-    @IBAction func makeGraphBtn(_ sender: Any) {
+    
+    
+    @IBAction func analyseBtn(_ sender: Any) {
         
         
+        if self.protocolSwitch.state.rawValue>0
+        {
+            BPSettingCenter.sharedInstance.haveProtocols = true
+        }
         
-        gMaker.keywords = []
-        //gMaker.mode = .inheritGraph
-        //gMaker.selfOnly = false
-        gMaker.styleStr = (self.styleButton.selectedItem?.title)!
-        gMaker.outStr = (self.outButton.selectedItem?.title)!
-        gMaker.bp_paths = self.pathstr.stringValue
+        var  center  = BPSettingCenter.sharedInstance
+        
+        center.styleType     = self.styleButton.selectedItem!.title
+        center.outPutFile    = self.outButton.selectedItem!.title
+        center.bp_paths      = self.pathstr.stringValue
+        center.tblr = "LR"
+        center.mode          = makeBPMode(rawValue: self.modeSelectBtn.indexOfSelectedItem)!
+        center.mainWindowC = self
+        
+        gMaker.bp_paths = center.bp_paths
         gMaker.doMakeG()
         
+    }
+    
+    @IBAction func makeGraphBtn(_ sender: Any) {
         
+        BPSettingCenter.sharedInstance.keyClassName = self.superSelect.selectedItem!.title
+        
+        gMaker.goDoBNode()
         
     }
     

@@ -59,8 +59,17 @@ class probeGo {
 
     func doMakeG() {
       
-        createInheritGraph()
+        switch BPSettingCenter.sharedInstance.mode
+        {
+            case .inheritGO:
+                createInheritGraph()
+            
+            case .invokeGO:
+                createInheritGraph()
+        }
+        
     }
+    
     
     // MARK: - Private
     
@@ -121,15 +130,31 @@ class probeGo {
         
         waitUntilFinished()
         
-        let nnSet = NSMutableSet()
+        //获取父类 Set 供选择
+        BPSettingCenter.sharedInstance.filterSet.removeAllObjects()
+        
         for item in classes
         {
             if (item.superKlass != nil)
             {
-                nnSet.add(item.superKlass!)
+                BPSettingCenter.sharedInstance.filterSet.add(item.superKlass!)
             }
         }
         
+        var ssuperSelect = BPSettingCenter.sharedInstance.mainWindowC.superSelect!
+        ssuperSelect.removeAllItems()
+        
+        var  arr = NSMutableArray()
+        
+        for item in BPSettingCenter.sharedInstance.filterSet {
+            arr.add(item)
+        }
+        ssuperSelect.addItems(withTitles: arr as! [String])
+        ssuperSelect.selectItem(at: 0)
+     
+        BPSettingCenter.sharedInstance.kClasses = classes
+        
+        /*
         var ccArr:[BPClassNode]=[]
          goFilterWithBNode(goclassArr: &ccArr,
                            nodeKclass: "NSObject",
@@ -147,9 +172,26 @@ class probeGo {
   
        
          GoMaker.execute("open", self.bp_paths, help: "Auto open failed")
- 
+ */
     }
     
+    func goDoBNode()
+    {
+        var ccArr:[BPClassNode]=[]
+        var center = BPSettingCenter.sharedInstance
+        goFilterWithBNode(goclassArr: &ccArr,
+                          nodeKclass: center.keyClassName!,
+                          classArr: center.kClasses)
+        
+        GraphMaker.generate(classes: ccArr,
+                            protocols: [],
+                            filePath: center.bp_paths+"/Inheritance",
+                            styleStr: center.styleType,
+                            outStr: center.outPutFile)
+        
+        
+        GoMaker.execute("open", self.bp_paths, help: "Auto open failed")
+    }
 
     /// 筛选节点
     ///

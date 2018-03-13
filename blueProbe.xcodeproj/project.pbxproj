@@ -26,6 +26,7 @@
 		0A8AA9062044076E00B3992D /* GraphMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA9052044076E00B3992D /* GraphMaker.swift */; };
 		0A8AA9082044094900B3992D /* GoMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA9072044094900B3992D /* GoMaker.swift */; };
 		D1D1703C69B38910BD019986 /* Pods_blueProbe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5205171484A6EABD3A786616 /* Pods_blueProbe.framework */; };
+		E645EE152057C88B0049C2D0 /* BPSettingCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E645EE142057C88B0049C2D0 /* BPSettingCenter.swift */; };
 		E65EB9C32041599B0080578D /* probeGo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB9C22041599B0080578D /* probeGo.swift */; };
 		E65EB9C5204167170080578D /* ParserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB9C4204167170080578D /* ParserType.swift */; };
 		E65EB9C7204167380080578D /* BPClassNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB9C6204167380080578D /* BPClassNode.swift */; };
@@ -58,6 +59,7 @@
 		347E3AB13CDE306918264F0F /* Pods-blueProbe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blueProbe.release.xcconfig"; path = "Pods/Target Support Files/Pods-blueProbe/Pods-blueProbe.release.xcconfig"; sourceTree = "<group>"; };
 		5205171484A6EABD3A786616 /* Pods_blueProbe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_blueProbe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B972E6E13F4A54426991312D /* Pods-blueProbe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blueProbe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-blueProbe/Pods-blueProbe.debug.xcconfig"; sourceTree = "<group>"; };
+		E645EE142057C88B0049C2D0 /* BPSettingCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPSettingCenter.swift; sourceTree = "<group>"; };
 		E65EB9C22041599B0080578D /* probeGo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = probeGo.swift; sourceTree = "<group>"; };
 		E65EB9C4204167170080578D /* ParserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserType.swift; sourceTree = "<group>"; };
 		E65EB9C6204167380080578D /* BPClassNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPClassNode.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				0A8AA9032044071000B3992D /* Extension.swift */,
 				0A8AA9052044076E00B3992D /* GraphMaker.swift */,
 				0A8AA9072044094900B3992D /* GoMaker.swift */,
+				E645EE142057C88B0049C2D0 /* BPSettingCenter.swift */,
 			);
 			path = bpGo;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				E65EB9C5204167170080578D /* ParserType.swift in Sources */,
 				E6CF0E20201A27C20009A17C /* AppDelegate.swift in Sources */,
 				0A8AA8EC2043B8F600B3992D /* Alternative.swift in Sources */,
+				E645EE152057C88B0049C2D0 /* BPSettingCenter.swift in Sources */,
 				0A8AA8EA2043B88B00B3992D /* Functor.swift in Sources */,
 				0A8AA8F22043B93C00B3992D /* Extensions.swift in Sources */,
 				E65EB9C7204167380080578D /* BPClassNode.swift in Sources */,
