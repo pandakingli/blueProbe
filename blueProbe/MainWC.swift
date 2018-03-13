@@ -14,16 +14,17 @@ enum makeBPMode: NSInteger {
     case invokeGO  = 1
     
 }
-
+let kTBLRItems = ["左右","上下","右左","下上"]
 let kModeItems = ["继承图","调用图"]
 let kStyleItems = ["dot","neato","fdp","sfdp","twopi","circo"]
 let kOutPutItems = ["svg","png","pdf","bmp","gif","jpeg","jpg","ico","json","psd","tiff","webp"]
 
 class MainWC: NSWindowController {
 
+    @IBOutlet weak var protoCheck: NSButton!
+    @IBOutlet weak var tblrButton: NSPopUpButton!
     @IBOutlet weak var superSelect: NSPopUpButton!
     @IBOutlet weak var modeSelectBtn: NSPopUpButton!
-    @IBOutlet weak var protocolSwitch: NSButton!
     @IBOutlet weak var outButton: NSPopUpButton!
     @IBOutlet weak var styleButton: NSPopUpButton!
     @IBOutlet weak var pathstr: NSTextField!
@@ -47,6 +48,11 @@ class MainWC: NSWindowController {
         self.modeSelectBtn.removeAllItems()
         self.modeSelectBtn.addItems(withTitles: kModeItems)
         self.modeSelectBtn.selectItem(at: 0)
+        
+        self.tblrButton.removeAllItems()
+        self.tblrButton.addItems(withTitles: kTBLRItems)
+        self.tblrButton.selectItem(at: 0)
+
         
     }
     
@@ -89,17 +95,16 @@ class MainWC: NSWindowController {
     @IBAction func analyseBtn(_ sender: Any) {
         
         
-        if self.protocolSwitch.state.rawValue>0
-        {
-            BPSettingCenter.sharedInstance.haveProtocols = true
-        }
+       
         
         var  center  = BPSettingCenter.sharedInstance
         
         center.styleType     = self.styleButton.selectedItem!.title
         center.outPutFile    = self.outButton.selectedItem!.title
         center.bp_paths      = self.pathstr.stringValue
-        center.tblr = "LR"
+        
+       self.updateTBLR()
+        
         center.mode          = makeBPMode(rawValue: self.modeSelectBtn.indexOfSelectedItem)!
         center.mainWindowC = self
         
@@ -110,10 +115,38 @@ class MainWC: NSWindowController {
     
     @IBAction func makeGraphBtn(_ sender: Any) {
         
+        self.updateTBLR()
         BPSettingCenter.sharedInstance.keyClassName = self.superSelect.selectedItem!.title
         
         gMaker.goDoBNode()
         
+    }
+    
+    func updateTBLR()  {
+      
+        let center  = BPSettingCenter.sharedInstance
+        
+        var tblr = "LR"
+        switch self.tblrButton.indexOfSelectedItem
+        {
+        case 0:
+            tblr = "LR"
+        case 1:
+            tblr = "TB"
+        case 2:
+            tblr = "RL"
+        case 3:
+            tblr = "BT"
+        default:
+            tblr = "LR"
+        }
+        
+        center.tblr = tblr
+        
+        if self.protoCheck.state.rawValue>0
+        {
+            center.haveProtocols = true
+        }
     }
     
 }

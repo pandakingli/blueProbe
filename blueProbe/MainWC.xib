@@ -11,9 +11,10 @@
                 <outlet property="modeSelectBtn" destination="v82-dd-7qr" id="3QX-mZ-DdH"/>
                 <outlet property="outButton" destination="X1I-j6-NsD" id="Mmo-vK-YKj"/>
                 <outlet property="pathstr" destination="WrN-Bm-nsI" id="zXk-uc-naC"/>
-                <outlet property="protocolSwitch" destination="fcV-R4-Jlt" id="QHc-lX-mOL"/>
+                <outlet property="protoCheck" destination="0cp-0U-e7b" id="5gG-mH-ZiF"/>
                 <outlet property="styleButton" destination="Bvu-aO-Tvs" id="TAk-Zj-LrJ"/>
                 <outlet property="superSelect" destination="GOH-0I-6Yt" id="lrJ-kG-vaC"/>
+                <outlet property="tblrButton" destination="vz9-3Y-rF9" id="MGg-ib-7Vi"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -168,10 +169,34 @@
                             <action selector="analyseBtn:" target="-2" id="d6y-z4-wLy"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fcV-R4-Jlt">
-                        <rect key="frame" x="369" y="220" width="49" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="radio" title="协议" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="BaU-CY-D2D">
+                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vz9-3Y-rF9">
+                        <rect key="frame" x="289" y="212" width="76" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="左右" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="9IX-bn-6wi" id="lGm-Ma-31P">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="LLt-Q5-j5T">
+                                <items>
+                                    <menuItem title="左右" state="on" id="9IX-bn-6wi"/>
+                                    <menuItem title="Item 2" id="UQx-F7-Erl"/>
+                                    <menuItem title="Item 3" id="mDZ-cR-04F"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aEu-u7-Yll">
+                        <rect key="frame" x="299" y="237" width="31" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="方向" id="j9g-Jq-RKI">
+                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0cp-0U-e7b">
+                        <rect key="frame" x="368" y="214" width="49" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="协议" bezelStyle="regularSquare" imagePosition="left" inset="2" id="5ee-Vr-gJd">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                         </buttonCell>
