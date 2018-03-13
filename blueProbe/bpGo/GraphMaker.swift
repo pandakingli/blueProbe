@@ -117,10 +117,10 @@ class GraphMaker {
         
         timeStr.append("\(comps.year!)")
         timeStr.append("-"+"\(comps.month!)")
-        timeStr.append("-"+"\(comps.day!)")
-        timeStr.append("-"+"\(comps.hour!)")
-        timeStr.append("\(comps.minute!)")
-        timeStr.append("\(comps.second!)")
+        timeStr.append("-"+"\(comps.day!)"+"-")
+        timeStr.append(String(format: "%02d", comps.hour!))
+        timeStr.append(String(format: "%02d", comps.minute!))
+        timeStr.append(String(format: "%02d", comps.second!))
         
         
         return timeStr;
