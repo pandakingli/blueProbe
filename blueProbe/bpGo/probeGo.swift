@@ -121,35 +121,58 @@ class probeGo {
         
         waitUntilFinished()
         
-        classes = classes.filter({ ($0.klassName.contains(keywords))||($0.superKlass?.contains(keywords))! })
-        //protocols = protocols.filter({ $0.name.contains(keywords) })
-        
-        let resultPath = GraphMaker.generate(classes: classes, protocols: [], filePath: self.bp_paths+"/Inheritance", styleStr: self.styleStr, outStr: self.outStr)
-        
-    /*
-        let openwen = NSOpenPanel()
-        openwen.allowsMultipleSelection = false
-        openwen.canChooseDirectories    = false
-        openwen.canChooseFiles          = false
-        openwen.directoryURL = URL.init(string: self.bp_paths)
-        openwen.begin { (result) in
-            
+        let nnSet = NSMutableSet()
+        for item in classes
+        {
+            if (item.superKlass != nil)
+            {
+                nnSet.add(item.superKlass!)
+            }
         }
         
-      */
+        var ccArr:[BPClassNode]=[]
+         goFilterWithBNode(goclassArr: &ccArr,
+                           nodeKclass: "NSObject",
+                           classArr: classes)
         
-        /*
-         // Log result
-         for node in classes {
-         print(node)
-         }
-          */
+        //classes = classes.filter({ ($0.klassName.contains(keywords))||($0.superKlass?.contains(keywords))! })
+        //protocols = protocols.filter({ $0.name.contains(keywords) })
+       
+        
+        GraphMaker.generate(classes: ccArr,
+                            protocols: [],
+                            filePath: self.bp_paths+"/Inheritance",
+                            styleStr: self.styleStr,
+                            outStr: self.outStr)
+  
+       
          GoMaker.execute("open", self.bp_paths, help: "Auto open failed")
  
     }
     
 
-    
+    /// 筛选节点
+    ///
+    /// - Returns: 返回数组
+    func goFilterWithBNode( goclassArr:inout [BPClassNode],nodeKclass:String,classArr:[BPClassNode])
+    {
+        
+        for item in classArr
+        {
+            if item.klassName == nodeKclass
+            {
+                goclassArr.append(item)
+            }
+            else if item.superKlass ==  nodeKclass
+            {
+                goFilterWithBNode(goclassArr: &goclassArr,
+                                  nodeKclass: item.klassName,
+                                  classArr: classArr)
+            }
+            
+        }
+        
+    }
     
     /// 等待直到所有任务完成
     func waitUntilFinished() {
