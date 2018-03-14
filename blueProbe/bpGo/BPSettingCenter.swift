@@ -8,6 +8,8 @@
 
 import Cocoa
 
+let kSavePathBPS = "kSavePathBPS"
+
 class BPSettingCenter: NSObject {
 
     var mainWindowC :MainWC = MainWC()
@@ -80,4 +82,45 @@ class BPSettingCenter: NSObject {
         }
         return false
     }
+    
+    func saveKeyPath(kPath:String?)
+    {
+        
+        let userDefault = UserDefaults.standard
+        
+        if  kPath == nil||kPath==""
+        {
+            userDefault.removeObject(forKey: kSavePathBPS)
+        }
+        else
+        {
+           userDefault.set(kPath, forKey: kSavePathBPS)
+        }
+    }
+    
+    func getKeyPath()->String?
+    {
+        let userDefault = UserDefaults.standard
+   
+       let pathStr = userDefault.string(forKey: kSavePathBPS)
+        
+
+        return pathStr
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

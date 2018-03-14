@@ -33,6 +33,7 @@ class MainWC: NSWindowController {
     
     let openPP = NSOpenPanel()
     let gMaker = probeGo()
+    let animationViewDef = LOTAnimationView(name: "dna_like_loader")
     let animationView = LOTAnimationView(name: "material_wave_loading")
     let animationViewDone = LOTAnimationView(name: "checked_done_")
     override func windowDidLoad() {
@@ -60,15 +61,34 @@ class MainWC: NSWindowController {
         self.superSelect.addItems(withTitles: ["NSObject"])
         self.superSelect.selectItem(at: 0)
         
-        let rect = NSRect(x:190, y: 270, width: 100, height: 100)
+        let rect = NSRect(x:190, y: 260, width: 100, height: 100)
         self.animationViewDone.frame = rect
         self.animationView.frame = rect
         
+        let rrect = NSRect(x:140, y: 280, width: 200, height: 45)
+        
+        self.animationViewDef.frame=rrect
+        
          self.window?.contentView?.addSubview(self.animationViewDone)
         self.window?.contentView?.addSubview(self.animationView)
-      
+      self.window?.contentView?.addSubview(self.animationViewDef)
+        
         self.animationViewDone.isHidden = true
-        self.animationView.isHidden = false
+        self.animationView.isHidden = true
+        self.animationViewDef.isHidden = false
+        
+        self.animationViewDef.loopAnimation = true
+        self.animationViewDef.play()
+        
+        let center  = BPSettingCenter.sharedInstance
+        
+        let hiString = center.getKeyPath()
+        
+        if hiString != nil
+        {
+            self.pathstr.stringValue = (hiString)!
+        }
+        
     }
     
  
@@ -86,7 +106,8 @@ class MainWC: NSWindowController {
                 print("NSFileHandlingPanelOKButton")
                 print(self.openPP.url?.path as Any)
                 self.pathstr.stringValue = (self.openPP.url?.path)!
-                
+                let center  = BPSettingCenter.sharedInstance
+                center.saveKeyPath(kPath: self.pathstr.stringValue)
             }
             
             if result.rawValue == NSFileHandlingPanelCancelButton {
@@ -112,7 +133,7 @@ class MainWC: NSWindowController {
      
        self.startRunningAni()
         
-        var  center  = BPSettingCenter.sharedInstance
+        let  center  = BPSettingCenter.sharedInstance
 
         center.styleType     = self.styleButton.selectedItem!.title
         center.outPutFile    = self.outButton.selectedItem!.title
@@ -143,6 +164,9 @@ class MainWC: NSWindowController {
     
     func startRunningAni()
     {
+        self.animationViewDef.isHidden = true
+        self.animationViewDef.stop()
+        
         self.animationViewDone.isHidden = true
         self.animationView.isHidden = false
         self.animationView.loopAnimation = true
@@ -151,6 +175,8 @@ class MainWC: NSWindowController {
     }
     func stopRunningAni()
     {
+        self.animationViewDef.isHidden = true
+        self.animationViewDef.stop()
         
         self.animationView.isHidden = true
         self.animationView.loopAnimation = false
@@ -180,10 +206,8 @@ class MainWC: NSWindowController {
         
         center.tblr = tblr
         
-        if self.protoCheck.state.rawValue>0
-        {
-            center.haveProtocols = true
-        }
+        center.haveProtocols =  self.protoCheck.state.rawValue>0
+        
     }
     
 }

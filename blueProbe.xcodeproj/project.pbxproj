@@ -30,6 +30,8 @@
 		E645EE1920580FAF0049C2D0 /* pencil_write.json in Resources */ = {isa = PBXBuildFile; fileRef = E645EE1820580FAF0049C2D0 /* pencil_write.json */; };
 		E645EE1F205904A70049C2D0 /* material_wave_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = E645EE1D205904A70049C2D0 /* material_wave_loading.json */; };
 		E645EE20205904A70049C2D0 /* checked_done_.json in Resources */ = {isa = PBXBuildFile; fileRef = E645EE1E205904A70049C2D0 /* checked_done_.json */; };
+		E645EE2220590A4D0049C2D0 /* rey_updated.json in Resources */ = {isa = PBXBuildFile; fileRef = E645EE2120590A4C0049C2D0 /* rey_updated.json */; };
+		E645EE2420590C330049C2D0 /* dna_like_loader.json in Resources */ = {isa = PBXBuildFile; fileRef = E645EE2320590C330049C2D0 /* dna_like_loader.json */; };
 		E65EB9C32041599B0080578D /* probeGo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB9C22041599B0080578D /* probeGo.swift */; };
 		E65EB9C5204167170080578D /* ParserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB9C4204167170080578D /* ParserType.swift */; };
 		E65EB9C7204167380080578D /* BPClassNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB9C6204167380080578D /* BPClassNode.swift */; };
@@ -66,6 +68,8 @@
 		E645EE1820580FAF0049C2D0 /* pencil_write.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pencil_write.json; sourceTree = "<group>"; };
 		E645EE1D205904A70049C2D0 /* material_wave_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = material_wave_loading.json; sourceTree = "<group>"; };
 		E645EE1E205904A70049C2D0 /* checked_done_.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checked_done_.json; sourceTree = "<group>"; };
+		E645EE2120590A4C0049C2D0 /* rey_updated.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rey_updated.json; sourceTree = "<group>"; };
+		E645EE2320590C330049C2D0 /* dna_like_loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dna_like_loader.json; sourceTree = "<group>"; };
 		E65EB9C22041599B0080578D /* probeGo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = probeGo.swift; sourceTree = "<group>"; };
 		E65EB9C4204167170080578D /* ParserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserType.swift; sourceTree = "<group>"; };
 		E65EB9C6204167380080578D /* BPClassNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPClassNode.swift; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 		E645EE1C2059046A0049C2D0 /* AniFiles */ = {
 			isa = PBXGroup;
 			children = (
+				E645EE2320590C330049C2D0 /* dna_like_loader.json */,
+				E645EE2120590A4C0049C2D0 /* rey_updated.json */,
 				E645EE1E205904A70049C2D0 /* checked_done_.json */,
 				E645EE1D205904A70049C2D0 /* material_wave_loading.json */,
 				E645EE1820580FAF0049C2D0 /* pencil_write.json */,
@@ -267,6 +273,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E645EE2220590A4D0049C2D0 /* rey_updated.json in Resources */,
+				E645EE2420590C330049C2D0 /* dna_like_loader.json in Resources */,
 				E645EE1F205904A70049C2D0 /* material_wave_loading.json in Resources */,
 				E6CF0E22201A27C20009A17C /* Assets.xcassets in Resources */,
 				E6CF0E30201AAC050009A17C /* MainWC.xib in Resources */,
