@@ -153,7 +153,7 @@ class probeGo {
         ssuperSelect.selectItem(at: 0)
      
         BPSettingCenter.sharedInstance.kClasses = classes
-        
+        BPSettingCenter.sharedInstance.mainWindowC.stopRunningAni()
         /*
         var ccArr:[BPClassNode]=[]
          goFilterWithBNode(goclassArr: &ccArr,

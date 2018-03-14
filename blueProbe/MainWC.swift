@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-
+import Lottie
 enum makeBPMode: NSInteger {
     
     case inheritGO = 0
@@ -21,6 +21,7 @@ let kOutPutItems = ["svg","png","pdf","bmp","gif","jpeg","jpg","ico","json","psd
 
 class MainWC: NSWindowController {
 
+
     @IBOutlet weak var protoCheck: NSButton!
     @IBOutlet weak var tblrButton: NSPopUpButton!
     @IBOutlet weak var superSelect: NSPopUpButton!
@@ -29,8 +30,10 @@ class MainWC: NSWindowController {
     @IBOutlet weak var styleButton: NSPopUpButton!
     @IBOutlet weak var pathstr: NSTextField!
 
+    
     let openPP = NSOpenPanel()
     let gMaker = probeGo()
+    let animationView = LOTAnimationView(name: "pencil_write")
     
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -53,7 +56,15 @@ class MainWC: NSWindowController {
         self.tblrButton.addItems(withTitles: kTBLRItems)
         self.tblrButton.selectItem(at: 0)
 
+        let wwRect = self.window?.contentView?.bounds
         
+        let rect = NSRect(x:190, y: 270, width: 100, height: 100)
+        self.animationView.frame = rect
+        
+        
+        self.window?.contentView?.addSubview(self.animationView)
+      
+        self.animationView.isHidden = false
     }
     
  
@@ -94,20 +105,20 @@ class MainWC: NSWindowController {
     
     @IBAction func analyseBtn(_ sender: Any) {
         
-        
-       
+     
+       self.startRunningAni()
         
         var  center  = BPSettingCenter.sharedInstance
-        
+
         center.styleType     = self.styleButton.selectedItem!.title
         center.outPutFile    = self.outButton.selectedItem!.title
         center.bp_paths      = self.pathstr.stringValue
-        
+
        self.updateTBLR()
-        
+
         center.mode          = makeBPMode(rawValue: self.modeSelectBtn.indexOfSelectedItem)!
         center.mainWindowC = self
-        
+
         gMaker.bp_paths = center.bp_paths
         gMaker.doMakeG()
         
@@ -115,13 +126,27 @@ class MainWC: NSWindowController {
     
     @IBAction func makeGraphBtn(_ sender: Any) {
         
+        self.stopRunningAni()
         self.updateTBLR()
         BPSettingCenter.sharedInstance.keyClassName = self.superSelect.selectedItem!.title
-        
+
         gMaker.goDoBNode()
-        
+//
     }
     
+    func startRunningAni()
+    {
+        self.animationView.isHidden = false
+        self.animationView.loopAnimation = true
+        self.animationView.play()
+        
+    }
+    func stopRunningAni()
+    {
+        self.animationView.isHidden = true
+        self.animationView.loopAnimation = false
+        self.animationView.stop()
+    }
     func updateTBLR()  {
       
         let center  = BPSettingCenter.sharedInstance

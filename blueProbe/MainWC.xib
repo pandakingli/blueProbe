@@ -22,33 +22,15 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="480" height="370"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="240" y="240" width="480" height="370"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
-            <view key="contentView" wantsLayer="YES" id="se5-gp-TjO">
+            <value key="minSize" type="size" width="480" height="370"/>
+            <value key="maxSize" type="size" width="480" height="370"/>
+            <view key="contentView" autoresizesSubviews="NO" wantsLayer="YES" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="370"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfz-Qw-idk">
-                        <rect key="frame" x="0.0" y="310" width="480" height="19"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="获取路径" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LEx-rB-Myb">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" size="12" name=".PingFangSC-Regular"/>
-                            <connections>
-                                <action selector="getPathBtn:" target="-2" id="M7v-7e-6I2"/>
-                            </connections>
-                        </buttonCell>
-                    </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WrN-Bm-nsI">
-                        <rect key="frame" x="2" y="271" width="476" height="32"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="路径" placeholderString="路径" drawsBackground="YES" id="olX-Rt-bY5">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" red="0.53056236681477209" green="0.82674468274933177" blue="0.92779582738876343" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textFieldCell>
-                    </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SVh-kc-aPR">
                         <rect key="frame" x="2" y="49" width="480" height="19"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -60,54 +42,6 @@
                             </connections>
                         </buttonCell>
                     </button>
-                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bvu-aO-Tvs">
-                        <rect key="frame" x="124" y="212" width="76" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="dot" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="fJ6-1U-GyJ" id="K6E-6l-WPc">
-                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="menu"/>
-                            <menu key="menu" id="nC1-6b-cAk">
-                                <items>
-                                    <menuItem title="dot" state="on" id="fJ6-1U-GyJ"/>
-                                    <menuItem title="Item 2" id="Z3v-EB-EUv"/>
-                                    <menuItem title="Item 3" id="klB-h4-unK"/>
-                                </items>
-                            </menu>
-                        </popUpButtonCell>
-                    </popUpButton>
-                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1I-j6-NsD">
-                        <rect key="frame" x="203" y="212" width="76" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="svg" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="4or-fc-gLj" id="elU-Oe-BOt">
-                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="menu"/>
-                            <menu key="menu" id="8ag-LZ-3Om">
-                                <items>
-                                    <menuItem title="svg" state="on" id="4or-fc-gLj"/>
-                                    <menuItem title="Item 2" id="yYn-yx-CP7"/>
-                                    <menuItem title="Item 3" id="aBK-dk-h5s"/>
-                                </items>
-                            </menu>
-                        </popUpButtonCell>
-                    </popUpButton>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6df-cX-Ezp">
-                        <rect key="frame" x="132" y="238" width="31" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="类型" id="uU2-9t-S6P">
-                            <font key="font" size="13" name=".PingFangSC-Regular"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eW8-rF-rbL">
-                        <rect key="frame" x="211" y="238" width="58" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="输出格式" id="J7i-ut-D9S">
-                            <font key="font" size="13" name=".PingFangSC-Regular"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZIO-K1-p2I">
                         <rect key="frame" x="-4" y="2" width="488" height="32"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -119,23 +53,8 @@
                             </connections>
                         </buttonCell>
                     </button>
-                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v82-dd-7qr">
-                        <rect key="frame" x="18" y="213" width="76" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="继承图" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ASd-P1-siU" id="GT6-1Z-1l4">
-                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="menu"/>
-                            <menu key="menu" id="7Gx-UZ-hVm">
-                                <items>
-                                    <menuItem title="继承图" state="on" id="ASd-P1-siU"/>
-                                    <menuItem title="Item 2" id="s6Z-Jo-jii"/>
-                                    <menuItem title="Item 3" id="nRJ-eg-4hD"/>
-                                </items>
-                            </menu>
-                        </popUpButtonCell>
-                    </popUpButton>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GOH-0I-6Yt">
-                        <rect key="frame" x="0.0" y="101" width="485" height="26"/>
+                        <rect key="frame" x="62" y="73" width="423" height="26"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="super" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="mBn-aQ-ZGO" id="QWo-XM-Mx9">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -150,7 +69,7 @@
                         </popUpButtonCell>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IFu-gG-Pru">
-                        <rect key="frame" x="0.0" y="133" width="484" height="17"/>
+                        <rect key="frame" x="0.0" y="80" width="65" height="17"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="选择父类" id="gTE-4h-u4R">
                             <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -158,8 +77,91 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfz-Qw-idk">
+                        <rect key="frame" x="0.0" y="237" width="480" height="19"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="roundRect" title="获取路径" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LEx-rB-Myb">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="12" name=".PingFangSC-Regular"/>
+                            <connections>
+                                <action selector="getPathBtn:" target="-2" id="M7v-7e-6I2"/>
+                            </connections>
+                        </buttonCell>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WrN-Bm-nsI">
+                        <rect key="frame" x="4" y="208" width="476" height="22"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="路径" placeholderString="路径" drawsBackground="YES" id="olX-Rt-bY5">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" red="0.53056236681477209" green="0.82674468274933177" blue="0.92779582738876343" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textFieldCell>
+                    </textField>
+                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bvu-aO-Tvs">
+                        <rect key="frame" x="116" y="174" width="76" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="dot" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="fJ6-1U-GyJ" id="K6E-6l-WPc">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="nC1-6b-cAk">
+                                <items>
+                                    <menuItem title="dot" state="on" id="fJ6-1U-GyJ"/>
+                                    <menuItem title="Item 2" id="Z3v-EB-EUv"/>
+                                    <menuItem title="Item 3" id="klB-h4-unK"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1I-j6-NsD">
+                        <rect key="frame" x="222" y="174" width="76" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="svg" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="4or-fc-gLj" id="elU-Oe-BOt">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="8ag-LZ-3Om">
+                                <items>
+                                    <menuItem title="svg" state="on" id="4or-fc-gLj"/>
+                                    <menuItem title="Item 2" id="yYn-yx-CP7"/>
+                                    <menuItem title="Item 3" id="aBK-dk-h5s"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6df-cX-Ezp">
+                        <rect key="frame" x="87" y="181" width="31" height="19"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="类型" id="uU2-9t-S6P">
+                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eW8-rF-rbL">
+                        <rect key="frame" x="195" y="183" width="31" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="格式" id="J7i-ut-D9S">
+                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v82-dd-7qr">
+                        <rect key="frame" x="2" y="176" width="76" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="继承图" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ASd-P1-siU" id="GT6-1Z-1l4">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="7Gx-UZ-hVm">
+                                <items>
+                                    <menuItem title="继承图" state="on" id="ASd-P1-siU"/>
+                                    <menuItem title="Item 2" id="s6Z-Jo-jii"/>
+                                    <menuItem title="Item 3" id="nRJ-eg-4hD"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CT6-Dz-3DY">
-                        <rect key="frame" x="-4" y="159" width="488" height="32"/>
+                        <rect key="frame" x="-2" y="145" width="488" height="32"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="分析文件" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wo5-1C-qxE">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -170,7 +172,7 @@
                         </connections>
                     </button>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vz9-3Y-rF9">
-                        <rect key="frame" x="289" y="212" width="76" height="26"/>
+                        <rect key="frame" x="336" y="176" width="76" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="左右" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="9IX-bn-6wi" id="lGm-Ma-31P">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -185,7 +187,7 @@
                         </popUpButtonCell>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aEu-u7-Yll">
-                        <rect key="frame" x="299" y="237" width="31" height="17"/>
+                        <rect key="frame" x="301" y="182" width="31" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="方向" id="j9g-Jq-RKI">
                             <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -194,7 +196,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0cp-0U-e7b">
-                        <rect key="frame" x="368" y="214" width="49" height="18"/>
+                        <rect key="frame" x="415" y="181" width="49" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="协议" bezelStyle="regularSquare" imagePosition="left" inset="2" id="5ee-Vr-gJd">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -206,7 +208,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="139" y="211"/>
+            <point key="canvasLocation" x="81" y="189"/>
         </window>
     </objects>
 </document>

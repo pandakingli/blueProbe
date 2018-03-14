@@ -27,6 +27,7 @@
 		0A8AA9082044094900B3992D /* GoMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA9072044094900B3992D /* GoMaker.swift */; };
 		D1D1703C69B38910BD019986 /* Pods_blueProbe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5205171484A6EABD3A786616 /* Pods_blueProbe.framework */; };
 		E645EE152057C88B0049C2D0 /* BPSettingCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E645EE142057C88B0049C2D0 /* BPSettingCenter.swift */; };
+		E645EE1920580FAF0049C2D0 /* pencil_write.json in Resources */ = {isa = PBXBuildFile; fileRef = E645EE1820580FAF0049C2D0 /* pencil_write.json */; };
 		E65EB9C32041599B0080578D /* probeGo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB9C22041599B0080578D /* probeGo.swift */; };
 		E65EB9C5204167170080578D /* ParserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB9C4204167170080578D /* ParserType.swift */; };
 		E65EB9C7204167380080578D /* BPClassNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65EB9C6204167380080578D /* BPClassNode.swift */; };
@@ -60,6 +61,7 @@
 		5205171484A6EABD3A786616 /* Pods_blueProbe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_blueProbe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B972E6E13F4A54426991312D /* Pods-blueProbe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blueProbe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-blueProbe/Pods-blueProbe.debug.xcconfig"; sourceTree = "<group>"; };
 		E645EE142057C88B0049C2D0 /* BPSettingCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPSettingCenter.swift; sourceTree = "<group>"; };
+		E645EE1820580FAF0049C2D0 /* pencil_write.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pencil_write.json; sourceTree = "<group>"; };
 		E65EB9C22041599B0080578D /* probeGo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = probeGo.swift; sourceTree = "<group>"; };
 		E65EB9C4204167170080578D /* ParserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserType.swift; sourceTree = "<group>"; };
 		E65EB9C6204167380080578D /* BPClassNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPClassNode.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		E6CF0E1E201A27C20009A17C /* blueProbe */ = {
 			isa = PBXGroup;
 			children = (
+				E645EE1820580FAF0049C2D0 /* pencil_write.json */,
 				0A8AA90920440B3900B3992D /* bpGo */,
 				0A8AA8FC204402F200B3992D /* Swift */,
 				0A8AA8FB204402E500B3992D /* Objc */,
@@ -252,6 +255,7 @@
 			files = (
 				E6CF0E22201A27C20009A17C /* Assets.xcassets in Resources */,
 				E6CF0E30201AAC050009A17C /* MainWC.xib in Resources */,
+				E645EE1920580FAF0049C2D0 /* pencil_write.json in Resources */,
 				E6CF0E25201A27C20009A17C /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,7 +313,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
