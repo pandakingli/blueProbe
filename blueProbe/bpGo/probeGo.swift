@@ -141,10 +141,10 @@ class probeGo {
             }
         }
         
-        var ssuperSelect = BPSettingCenter.sharedInstance.mainWindowC.superSelect!
-        ssuperSelect.removeAllItems()
+        let ssuperSelect = BPSettingCenter.sharedInstance.mainWindowC.superSelect!
         
-        var  arr = NSMutableArray()
+        
+        let  arr = NSMutableArray()
         
         for item in BPSettingCenter.sharedInstance.filterSet {
             arr.add(item)
@@ -154,7 +154,7 @@ class probeGo {
         BPSettingCenter.sharedInstance.kClasses = classes
         
         DispatchQueue.main.async(execute: {
-            
+            ssuperSelect.removeAllItems()
             ssuperSelect.addItems(withTitles: arr as! [String])
             ssuperSelect.selectItem(at: 0)
             
@@ -186,7 +186,7 @@ class probeGo {
     func goDoBNode()
     {
         var ccArr:[BPClassNode]=[]
-        var center = BPSettingCenter.sharedInstance
+        let center = BPSettingCenter.sharedInstance
         goFilterWithBNode(goclassArr: &ccArr,
                           nodeKclass: center.keyClassName!,
                           classArr: center.kClasses)

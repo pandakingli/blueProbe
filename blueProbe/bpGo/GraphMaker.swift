@@ -135,10 +135,10 @@ class GraphMaker {
     fileprivate func create(file filePath: String, styleStr: String, outStr: String) -> String {
         // 写入文件
        // let filename = URL(fileURLWithPath: filePath).lastPathComponent
-       let date = NSDate()
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let showtimestr = timeFormatter.string(from: date as Date) as String
+       //let date = NSDate()
+        //let timeFormatter = DateFormatter()
+        //timeFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        //let showtimestr = timeFormatter.string(from: date as Date) as String
         
         let datetimeStr = self.getTimeString()
         
