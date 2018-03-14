@@ -149,11 +149,19 @@ class probeGo {
         for item in BPSettingCenter.sharedInstance.filterSet {
             arr.add(item)
         }
-        ssuperSelect.addItems(withTitles: arr as! [String])
-        ssuperSelect.selectItem(at: 0)
+        
      
         BPSettingCenter.sharedInstance.kClasses = classes
-        BPSettingCenter.sharedInstance.mainWindowC.stopRunningAni()
+        
+        DispatchQueue.main.async(execute: {
+            
+            ssuperSelect.addItems(withTitles: arr as! [String])
+            ssuperSelect.selectItem(at: 0)
+            
+            BPSettingCenter.sharedInstance.mainWindowC.stopRunningAni()
+            
+        })
+        
         /*
         var ccArr:[BPClassNode]=[]
          goFilterWithBNode(goclassArr: &ccArr,

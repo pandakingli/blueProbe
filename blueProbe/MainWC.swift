@@ -33,8 +33,8 @@ class MainWC: NSWindowController {
     
     let openPP = NSOpenPanel()
     let gMaker = probeGo()
-    let animationView = LOTAnimationView(name: "pencil_write")
-    
+    let animationView = LOTAnimationView(name: "material_wave_loading")
+    let animationViewDone = LOTAnimationView(name: "checked_done_")
     override func windowDidLoad() {
         super.windowDidLoad()
         self.window?.backgroundColor = NSColor.white
@@ -56,14 +56,18 @@ class MainWC: NSWindowController {
         self.tblrButton.addItems(withTitles: kTBLRItems)
         self.tblrButton.selectItem(at: 0)
 
-        let wwRect = self.window?.contentView?.bounds
+        self.superSelect.removeAllItems()
+        self.superSelect.addItems(withTitles: ["NSObject"])
+        self.superSelect.selectItem(at: 0)
         
         let rect = NSRect(x:190, y: 270, width: 100, height: 100)
+        self.animationViewDone.frame = rect
         self.animationView.frame = rect
         
-        
+         self.window?.contentView?.addSubview(self.animationViewDone)
         self.window?.contentView?.addSubview(self.animationView)
       
+        self.animationViewDone.isHidden = true
         self.animationView.isHidden = false
     }
     
@@ -120,8 +124,11 @@ class MainWC: NSWindowController {
         center.mainWindowC = self
 
         gMaker.bp_paths = center.bp_paths
-        gMaker.doMakeG()
-        
+  
+        let globalQueue = DispatchQueue.global()
+        globalQueue.async {
+            self.gMaker.doMakeG()
+        }
     }
     
     @IBAction func makeGraphBtn(_ sender: Any) {
@@ -136,6 +143,7 @@ class MainWC: NSWindowController {
     
     func startRunningAni()
     {
+        self.animationViewDone.isHidden = true
         self.animationView.isHidden = false
         self.animationView.loopAnimation = true
         self.animationView.play()
@@ -143,9 +151,13 @@ class MainWC: NSWindowController {
     }
     func stopRunningAni()
     {
+        
         self.animationView.isHidden = true
         self.animationView.loopAnimation = false
         self.animationView.stop()
+        
+        self.animationViewDone.isHidden=false
+        self.animationViewDone.play()
     }
     func updateTBLR()  {
       
