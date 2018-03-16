@@ -159,7 +159,7 @@ class MainWC: NSWindowController {
         BPSettingCenter.sharedInstance.keyClassName = self.superSelect.selectedItem!.title
 
         gMaker.goDoBNode()
-//
+
     }
     
     func startRunningAni()
