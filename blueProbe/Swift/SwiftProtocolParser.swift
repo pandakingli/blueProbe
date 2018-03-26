@@ -25,7 +25,7 @@ extension SwiftProtocolParser {
      */
     var protocolParser: Parser<BPProtocolNode> {
         return curry(BPProtocolNode.init)
-            <^> token(.proto) *> token(.name) ~>- stringify
+            <^> token(.proto) *> token(.name) ~>- go2String
             <*> trying(inheritList) <* token(.leftBrace)
     }
     
@@ -34,6 +34,6 @@ extension SwiftProtocolParser {
      inherit_list = ':' NAME (',' NAME)*
      */
     var inheritList: Parser<[String]> {
-        return token(.colon) *> token(.name).separateBy(token(.comma)) ~>- stringify
+        return token(.colon) *> token(.name).separateBy(token(.comma)) ~>- go2String
     }
 }

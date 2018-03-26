@@ -32,9 +32,9 @@ extension OCInterfaceParser {
         
         // @interface xx : xx <xx, xx>
         let parser = curry(BPClassNode.init)
-            <^> token(.interface) *> token(.name) ~>- stringify // 类名
-            <*> trying (token(.colon) *> token(.name)) ~>- stringify // 父类名
-            <*> trying (token(.name).separateBy(token(.comma)).between(lAngle, rAngle)) ~>- stringify
+            <^> token(.interface) *> token(.name) ~>- go2String // 类名
+            <*> trying (token(.colon) *> token(.name)) ~>- go2String // 父类名
+            <*> trying (token(.name).separateBy(token(.comma)).between(lAngle, rAngle)) ~>- go2String
         return parser
     }
     
@@ -52,8 +52,8 @@ extension OCInterfaceParser {
         
         // @interface xx(xx?) <xx, xx>
         return curry(BPClassNode.init)
-            <^> token(.interface) *> token(.name) ~>- stringify
+            <^> token(.interface) *> token(.name) ~>- go2String
             <*> trying(token(.name)).between(lParen, rParen) *> pure(nil) // 分类的名字是可选项, 忽略结果
-            <*> trying(token(.name).separateBy(token(.comma)).between(lAngle, rAngle)) ~>- stringify // 协议列表
+            <*> trying(token(.name).separateBy(token(.comma)).between(lAngle, rAngle)) ~>- go2String // 协议列表
     }
 }

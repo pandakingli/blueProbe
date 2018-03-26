@@ -85,17 +85,6 @@ func joinedText(_ separator: String) -> ([String]) -> String {
     }
 }
 
-/// 提取Token的text字段
-var stringify: (Token?) -> String {
-    return { token in
-        if let token = token {
-            return token.text
-        } else {
-            return ""
-        }
-    }
-}
-
 /// 接收任意参数，包装在数组中返回
 func array<T>() -> (T) -> [T] {
     return { t in

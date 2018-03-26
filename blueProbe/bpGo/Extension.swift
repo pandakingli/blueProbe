@@ -10,11 +10,11 @@ import Foundation
 
 
 extension Array {
-    func join(stringify: (Iterator.Element) -> String, separator: String) -> String {
+    func join(go2String: (Iterator.Element) -> String, separator: String) -> String {
         var result = ""
         
         for index in startIndex..<endIndex {
-            result.append(contentsOf: stringify(self[index]))
+            result.append(contentsOf: go2String(self[index]))
             
             if index == self.index(before: endIndex) {
                 continue
