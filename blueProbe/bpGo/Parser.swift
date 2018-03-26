@@ -33,9 +33,48 @@ extension Parser {
         }
     }
     
+    func applyLeft<U>(_ parser: Parser<(T) -> U>) -> Parser<U>
+    {
+        return Parser<U> { (tokens) -> Result<(U, Tokens)> in
+            
+            let lresult = parser.parse(tokens)
+            
+            guard let l = lresult.value
+                else
+            {
+                return .failure(lresult.error!)
+            }
+            
+            let rresult = self.parse(l.1)
+            guard let r = rresult.value
+                else
+            {
+                return .failure(rresult.error!)
+            }
+            
+            return .success((l.0(r.0), r.1))
+        }
+    }
+    
+    func bluemap<U>(_ f: @escaping (T) -> U) -> Parser<U>
+    {
+        return Parser<U> { (tokens) -> Result<(U, Tokens)> in
+            
+            let r = self.parse(tokens)
+            switch r
+            {
+            case .success(let (result, rest)):
+                return .success((f(result), rest))
+                
+            case .failure(let error):
+                return .failure(error)
+            }
+        }
+    }
+    
     /// 将执行结果转换成optional的版本
     var optional: Parser<T?> {
-        return self.map { (result) -> T? in
+        return self.bluemap { (result) -> T? in
             return result
         }
     }
@@ -162,7 +201,7 @@ func anyTokens(encloseBy l: Parser<Token>, and r: Parser<Token>) -> Parser<[Toke
 
 /// 匹配在l和r之间的任意Token，l和r会被消耗掉，但不会出现在结果中，lr匹配失败时会返回错误
 func anyTokens(inside l: Parser<Token>, and r: Parser<Token>) -> Parser<[Token]> {
-    return anyTokens(encloseBy: l, and: r).map {
+    return anyTokens(encloseBy: l, and: r).bluemap {
         Array($0.dropFirst().dropLast()) // 去掉首尾的元素
     }
 }
@@ -178,7 +217,7 @@ var anyEnclosedTokens: Parser<[Token]> {
 /// 匹配任意字符直到p失败为止，p只有在不被{}、[]、()或<>包围时进行判断
 func anyOpenTokens(until p: Parser<Token>) -> Parser<[Token]> {
     return { $0.flatMap {$0} }
-        <^> (not(p) *> (anyEnclosedTokens <|> anyToken.map { [$0] })).many
+        <^> (not(p) *> (anyEnclosedTokens <|> anyToken.bluemap { [$0] })).many
         <|> pure([])
 }
 

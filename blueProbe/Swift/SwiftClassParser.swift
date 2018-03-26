@@ -33,9 +33,9 @@ extension SwiftClassParser {
     var classDef: Parser<BPClassNode> {
         // TODO: 区分struct和class
         return curry(BPClassNode.init)
-            <^> (token(.cls) <|> token(.structure)) *> token(.name) <* trying (genericType) => stringify // 类名
-            <*> trying (superCls) => stringify // 父类
-            <*> trying (token(.comma) *> protocols) => stringify // 协议列表
+            <^> (token(.cls) <|> token(.structure)) *> token(.name) <* trying (genericType) ~>- stringify // 类名
+            <*> trying (superCls) ~>- stringify // 父类
+            <*> trying (token(.comma) *> protocols) ~>- stringify // 协议列表
     }
     
     /// 解析extension定义
@@ -44,9 +44,9 @@ extension SwiftClassParser {
      */
     var extensionDef: Parser<BPClassNode> {
         return curry(BPClassNode.init)
-            <^> token(.exten) *> token(.name) => stringify
+            <^> token(.exten) *> token(.name) ~>- stringify
             <*> pure(nil)
-            <*> trying (token(.colon) *> protocols) => stringify
+            <*> trying (token(.colon) *> protocols) ~>- stringify
     }
     
     /// 解析泛型

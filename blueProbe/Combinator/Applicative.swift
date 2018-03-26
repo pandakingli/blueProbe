@@ -11,7 +11,7 @@ import Runes
 
 /// 顺序执行两个parser，然后将右侧parser的结果应用到左侧返回的函数中
 func <*> <T, U>(lhs: Parser<(T) -> U>, rhs: Parser<T>) -> Parser<U> {
-    return rhs.apply(lhs)
+    return rhs.applyLeft(lhs)
 }
 
 /// 顺序执行两个parser，最后直接抛弃左侧parser的结果，返回右侧parser的结果
@@ -47,7 +47,7 @@ func <* <T, U>(lhs: Parser<T>, rhs: Parser<U>) -> Parser<T> {
         return .success((l.0, r.1))
     }
 }
-
+/*
 extension Parser {
     func apply<U>(_ parser: Parser<(T) -> U>) -> Parser<U> {
         return Parser<U> { (tokens) -> Result<(U, Tokens)> in
@@ -65,3 +65,4 @@ extension Parser {
         }
     }
 }
+*/

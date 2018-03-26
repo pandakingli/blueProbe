@@ -11,9 +11,9 @@ import Runes
 
 
 func <^> <T, U>(f: @escaping (T) -> U, p: Parser<T>) -> Parser<U> {
-    return p.map(f)
+    return p.bluemap(f)
 }
-
+/*
 extension Parser {
     func map<U>(_ f: @escaping (T) -> U) -> Parser<U> {
         return Parser<U> { (tokens) -> Result<(U, Tokens)> in
@@ -27,3 +27,4 @@ extension Parser {
         }
     }
 }
+*/

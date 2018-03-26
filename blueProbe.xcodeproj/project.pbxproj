@@ -26,6 +26,7 @@
 		0A8AA9062044076E00B3992D /* GraphMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA9052044076E00B3992D /* GraphMaker.swift */; };
 		0A8AA9082044094900B3992D /* GoMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA9072044094900B3992D /* GoMaker.swift */; };
 		D1D1703C69B38910BD019986 /* Pods_blueProbe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5205171484A6EABD3A786616 /* Pods_blueProbe.framework */; };
+		E62DF9D62069308B00D4CC1F /* blueOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DF9D52069308B00D4CC1F /* blueOperators.swift */; };
 		E645EE152057C88B0049C2D0 /* BPSettingCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E645EE142057C88B0049C2D0 /* BPSettingCenter.swift */; };
 		E645EE1920580FAF0049C2D0 /* pencil_write.json in Resources */ = {isa = PBXBuildFile; fileRef = E645EE1820580FAF0049C2D0 /* pencil_write.json */; };
 		E645EE1F205904A70049C2D0 /* material_wave_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = E645EE1D205904A70049C2D0 /* material_wave_loading.json */; };
@@ -64,6 +65,7 @@
 		347E3AB13CDE306918264F0F /* Pods-blueProbe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blueProbe.release.xcconfig"; path = "Pods/Target Support Files/Pods-blueProbe/Pods-blueProbe.release.xcconfig"; sourceTree = "<group>"; };
 		5205171484A6EABD3A786616 /* Pods_blueProbe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_blueProbe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B972E6E13F4A54426991312D /* Pods-blueProbe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blueProbe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-blueProbe/Pods-blueProbe.debug.xcconfig"; sourceTree = "<group>"; };
+		E62DF9D52069308B00D4CC1F /* blueOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blueOperators.swift; sourceTree = "<group>"; };
 		E645EE142057C88B0049C2D0 /* BPSettingCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPSettingCenter.swift; sourceTree = "<group>"; };
 		E645EE1820580FAF0049C2D0 /* pencil_write.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pencil_write.json; sourceTree = "<group>"; };
 		E645EE1D205904A70049C2D0 /* material_wave_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = material_wave_loading.json; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				0A8AA8EF2043B92600B3992D /* Monad.swift */,
 				0A8AA8F12043B93C00B3992D /* Extensions.swift */,
 				0A8AA8F32043B9E800B3992D /* Operator.swift */,
+				E62DF9D52069308B00D4CC1F /* blueOperators.swift */,
 			);
 			path = Combinator;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				0A8AA8EE2043B90D00B3992D /* Applicative.swift in Sources */,
 				0A8AA8E12043B10D00B3992D /* Lexer.swift in Sources */,
 				0A8AA9062044076E00B3992D /* GraphMaker.swift in Sources */,
+				E62DF9D62069308B00D4CC1F /* blueOperators.swift in Sources */,
 				0A8AA8F42043B9E800B3992D /* Operator.swift in Sources */,
 				0A8AA9002044040400B3992D /* SwiftProtocolParser.swift in Sources */,
 				0A8AA9042044071000B3992D /* Extension.swift in Sources */,

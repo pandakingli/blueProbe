@@ -39,7 +39,7 @@ extension Parser {
     /// 尝试解析0个或多个由指定标签分隔的值，返回结果的集合，该组合子不会返回错误
     func separateBy<U>(_ p: Parser<U>) -> Parser<[T]> {
         return curry({ $0 + [$1] }) <^> (self <* p).many <*> self
-            <|> self => array()
+            <|> self ~>- array()
             <|> pure([])
     }
     

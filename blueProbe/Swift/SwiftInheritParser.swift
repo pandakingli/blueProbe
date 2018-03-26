@@ -36,7 +36,7 @@ extension Array where Element == Intermediate {
 class SwiftInheritParser: ParserType {
     var parser: Parser<([BPProtocolNode], [BPClassNode])> {
         // 合并protocol和class的解析结果
-        return inheritParser.map { (result) -> ([BPProtocolNode], [BPClassNode]) in
+        return inheritParser.bluemap { (result) -> ([BPProtocolNode], [BPClassNode]) in
             var (protocols, classes) = result.separate()
             classes = classes.distinct
             

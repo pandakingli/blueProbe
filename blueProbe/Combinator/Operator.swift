@@ -10,11 +10,6 @@
 import Foundation
 import Runes
 
-precedencegroup ConvertPrecedence {
-    associativity: left
-    higherThan: RunesApplicativePrecedence
-    lowerThan: RunesApplicativeSequencePrecedence
-}
 
 precedencegroup ErrorMessagePrecedence {
     associativity: left
@@ -25,7 +20,6 @@ precedencegroup ErrorMessagePrecedence {
 
 
 
-infix operator => : ConvertPrecedence
 
 /**
  custom operator
@@ -60,26 +54,7 @@ func ?? <T>(_ parser: Parser<T?>, _ defaultVal: T) -> Parser<T> {
 
 // MARK: - 类型转换操作符
 
-/// => 是一个将Parser<T>转换成指定类型的操作符
-func => <T, U>(_ lhs: Parser<T>, _ transfrom: @escaping (T) -> U) -> Parser<U> {
-    return lhs.map { transfrom($0) }
-}
 
-func => <T, U>(_ lhs: Parser<[T]>, _ transfrom: @escaping (T) -> U) -> Parser<[U]> {
-    return lhs.map { list in
-        list.map { transfrom($0) }
-    }
-}
-
-func => <T, U>(_ lhs: Parser<[T]?>, _ transfrom: @escaping (T) -> U) -> Parser<[U]> {
-    return lhs.map { list in
-        if let list = list {
-            return list.map { transfrom($0) }
-        } else {
-            return []
-        }
-    }
-}
 
 // MARK: - 类型转换辅助方法
 
