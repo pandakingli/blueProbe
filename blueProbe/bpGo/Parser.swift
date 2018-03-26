@@ -191,12 +191,12 @@ func anyTokens(until p: Parser<Token>) -> Parser<[Token]> {
 /// 匹配在l和r之间的任意Token，l和r也会被消耗掉，l和r会出现在结果中，lr匹配失败时会返回错误
 func anyTokens(encloseBy l: Parser<Token>, and r: Parser<Token>) -> Parser<[Token]> {
     let content = lookAhead(l) *> lazy(anyTokens(encloseBy: l, and: r)) // 递归匹配
-        <|> ({ [$0] } <^> (not(r) *> anyToken)) // 匹配任意token直到碰到r
+        <|> ({ [$0] } ~>* (not(r) *> anyToken)) // 匹配任意token直到碰到r
     
     return curry({ [$0] + Array($1.joined()) + [$2] })
-        <^> l
-        <*> (content.many <|> pure([])) // many为空的时候会失败
-        <*> r
+        ~>* l
+        *<~ (content.many <|> pure([])) // many为空的时候会失败
+        *<~ r
 }
 
 /// 匹配在l和r之间的任意Token，l和r会被消耗掉，但不会出现在结果中，lr匹配失败时会返回错误
@@ -217,7 +217,7 @@ var anyEnclosedTokens: Parser<[Token]> {
 /// 匹配任意字符直到p失败为止，p只有在不被{}、[]、()或<>包围时进行判断
 func anyOpenTokens(until p: Parser<Token>) -> Parser<[Token]> {
     return { $0.flatMap {$0} }
-        <^> (not(p) *> (anyEnclosedTokens <|> anyToken.bluemap { [$0] })).many
+        ~>* (not(p) *> (anyEnclosedTokens <|> anyToken.bluemap { [$0] })).many
         <|> pure([])
 }
 

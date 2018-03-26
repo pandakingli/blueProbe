@@ -14,7 +14,7 @@ import Curry
 
 class SwiftClassParser: ParserType {
     var parser: Parser<[BPClassNode]> {
-        return curry({ $0.distinct }) <^> classParser.continuous
+        return curry({ $0.distinct }) ~>* classParser.continuous
     }
 }
 
@@ -33,9 +33,9 @@ extension SwiftClassParser {
     var classDef: Parser<BPClassNode> {
         // TODO: 区分struct和class
         return curry(BPClassNode.init)
-            <^> (token(.cls) <|> token(.structure)) *> token(.name) <* trying (genericType) ~>- go2String // 类名
-            <*> trying (superCls) ~>- go2String // 父类
-            <*> trying (token(.comma) *> protocols) ~>- go2String // 协议列表
+            ~>* (token(.cls) <|> token(.structure)) *> token(.name) <* trying (genericType) ~>- go2String // 类名
+            *<~ trying (superCls) ~>- go2String // 父类
+            *<~ trying (token(.comma) *> protocols) ~>- go2String // 协议列表
     }
     
     /// 解析extension定义
@@ -44,9 +44,9 @@ extension SwiftClassParser {
      */
     var extensionDef: Parser<BPClassNode> {
         return curry(BPClassNode.init)
-            <^> token(.exten) *> token(.name) ~>- go2String
-            <*> pure(nil)
-            <*> trying (token(.colon) *> protocols) ~>- go2String
+            ~>* token(.exten) *> token(.name) ~>- go2String
+            *<~ pure(nil)
+            *<~ trying (token(.colon) *> protocols) ~>- go2String
     }
     
     /// 解析泛型

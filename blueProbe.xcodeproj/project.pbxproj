@@ -12,10 +12,6 @@
 		0A8AA8E32043B15300B3992D /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8E22043B15300B3992D /* Token.swift */; };
 		0A8AA8E52043B41700B3992D /* OCInterfaceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8E42043B41700B3992D /* OCInterfaceParser.swift */; };
 		0A8AA8E72043B44600B3992D /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8E62043B44600B3992D /* Parser.swift */; };
-		0A8AA8EA2043B88B00B3992D /* Functor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8E92043B88B00B3992D /* Functor.swift */; };
-		0A8AA8EC2043B8F600B3992D /* Alternative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8EB2043B8F600B3992D /* Alternative.swift */; };
-		0A8AA8EE2043B90D00B3992D /* Applicative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8ED2043B90D00B3992D /* Applicative.swift */; };
-		0A8AA8F02043B92600B3992D /* Monad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8EF2043B92600B3992D /* Monad.swift */; };
 		0A8AA8F22043B93C00B3992D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8F12043B93C00B3992D /* Extensions.swift */; };
 		0A8AA8F42043B9E800B3992D /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8F32043B9E800B3992D /* Operator.swift */; };
 		0A8AA8F82043BCD300B3992D /* ParserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA8F72043BCD300B3992D /* ParserResult.swift */; };
@@ -49,10 +45,6 @@
 		0A8AA8E22043B15300B3992D /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		0A8AA8E42043B41700B3992D /* OCInterfaceParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCInterfaceParser.swift; sourceTree = "<group>"; };
 		0A8AA8E62043B44600B3992D /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
-		0A8AA8E92043B88B00B3992D /* Functor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functor.swift; sourceTree = "<group>"; };
-		0A8AA8EB2043B8F600B3992D /* Alternative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alternative.swift; sourceTree = "<group>"; };
-		0A8AA8ED2043B90D00B3992D /* Applicative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicative.swift; sourceTree = "<group>"; };
-		0A8AA8EF2043B92600B3992D /* Monad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monad.swift; sourceTree = "<group>"; };
 		0A8AA8F12043B93C00B3992D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0A8AA8F32043B9E800B3992D /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
 		0A8AA8F72043BCD300B3992D /* ParserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserResult.swift; sourceTree = "<group>"; };
@@ -100,10 +92,6 @@
 		0A8AA8E82043B87C00B3992D /* Combinator */ = {
 			isa = PBXGroup;
 			children = (
-				0A8AA8E92043B88B00B3992D /* Functor.swift */,
-				0A8AA8EB2043B8F600B3992D /* Alternative.swift */,
-				0A8AA8ED2043B90D00B3992D /* Applicative.swift */,
-				0A8AA8EF2043B92600B3992D /* Monad.swift */,
 				0A8AA8F12043B93C00B3992D /* Extensions.swift */,
 				0A8AA8F32043B9E800B3992D /* Operator.swift */,
 				E62DF9D52069308B00D4CC1F /* blueOperators.swift */,
@@ -356,7 +344,6 @@
 				0A8AA8E52043B41700B3992D /* OCInterfaceParser.swift in Sources */,
 				0A8AA8E72043B44600B3992D /* Parser.swift in Sources */,
 				0A8AA8F82043BCD300B3992D /* ParserResult.swift in Sources */,
-				0A8AA8EE2043B90D00B3992D /* Applicative.swift in Sources */,
 				0A8AA8E12043B10D00B3992D /* Lexer.swift in Sources */,
 				0A8AA9062044076E00B3992D /* GraphMaker.swift in Sources */,
 				E62DF9D62069308B00D4CC1F /* blueOperators.swift in Sources */,
@@ -367,14 +354,11 @@
 				0A8AA8FE2044036900B3992D /* SwiftInheritParser.swift in Sources */,
 				E65EB9C5204167170080578D /* ParserType.swift in Sources */,
 				E6CF0E20201A27C20009A17C /* AppDelegate.swift in Sources */,
-				0A8AA8EC2043B8F600B3992D /* Alternative.swift in Sources */,
 				E645EE152057C88B0049C2D0 /* BPSettingCenter.swift in Sources */,
-				0A8AA8EA2043B88B00B3992D /* Functor.swift in Sources */,
 				0A8AA8F22043B93C00B3992D /* Extensions.swift in Sources */,
 				E65EB9C7204167380080578D /* BPClassNode.swift in Sources */,
 				0A8AA8DF2043AFCA00B3992D /* BPProtocolNode.swift in Sources */,
 				0A8AA8E32043B15300B3992D /* Token.swift in Sources */,
-				0A8AA8F02043B92600B3992D /* Monad.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

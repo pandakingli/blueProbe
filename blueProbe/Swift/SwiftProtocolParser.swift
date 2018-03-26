@@ -25,8 +25,8 @@ extension SwiftProtocolParser {
      */
     var protocolParser: Parser<BPProtocolNode> {
         return curry(BPProtocolNode.init)
-            <^> token(.proto) *> token(.name) ~>- go2String
-            <*> trying(inheritList) <* token(.leftBrace)
+            ~>* token(.proto) *> token(.name) ~>- go2String
+            *<~ trying(inheritList) <* token(.leftBrace)
     }
     
     /// 解析协议的继承列表
