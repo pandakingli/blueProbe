@@ -30,12 +30,30 @@ extension OCInterfaceParser {
         let lAngle = token(.leftAngle)
         let rAngle = token(.rightAngle)
         
-        // @interface xx : xx <xx, xx>
+    /*
         let parser = curry(BPClassNode.init)
             ~>* token(.interface) *> token(.name) ~>- go2String // 类名
             *<~ trying (token(.colon) *> token(.name)) ~>- go2String // 父类名
             *<~ trying (token(.name).separateBy(token(.comma)).between(lAngle, rAngle)) ~>- go2String
         return parser
+       */
+        
+        let  parserClassName      = token(.interface) *> token(.name) ~>- go2String // 类名
+        let  parserSuperClassName = trying (token(.colon) *> token(.name)) ~>- go2String // 父类名
+        let  parserProtocols      = trying (token(.name).separateBy(token(.comma)).between(lAngle, rAngle)) ~>- go2String
+        
+        let goParser = curry(BPClassNode.init) ~>* parserClassName *<~ parserSuperClassName *<~ parserProtocols
+        
+        
+        return goParser
+        
+        
+        //执行顺序
+        //1.curry(BPClassNode.init) ~>* parserClassName *<~ parserSuperClassName
+        //2.curry(BPClassNode.init) ~>* parserClassName
+        //3.parserClassName
+        //4.token(.interface) *> token(.name)
+        //5.token(.interface)
     }
     
     /// 解析分类定义
