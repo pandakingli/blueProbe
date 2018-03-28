@@ -12,6 +12,11 @@ let kSavePathBPS = "kSavePathBPS"
 
 class BPSettingCenter: NSObject {
 
+    var objcNum : NSInteger = 0
+    var swiftNum : NSInteger = 0
+    var startTime = NSDate()
+    var endTime = NSDate()
+    
     var mainWindowC :MainWC = MainWC()
     var mode: makeBPMode = .inheritGO
     var keyClassName: String? = nil
@@ -108,10 +113,46 @@ class BPSettingCenter: NSObject {
         return pathStr
     }
     
+    func addObjc()  {
+        
+        self.objcNum += 1
+       
+    }
     
+    func addSwift()  {
+        
+       self.swiftNum += 1
+        
+    }
     
+    func setStart()  {
+        startTime = NSDate()
+        objcNum = 0;
+        swiftNum = 0
+    }
     
+    func setEnd()  {
+        endTime = NSDate()
+      
+    }
+
+    func showTime()->String!  {
+        let seconds = endTime.timeIntervalSince(startTime as Date)
+        let ss = Int(round(seconds))
+        let str = "OC文件:\(objcNum)\n swift文件:\(swiftNum) \n 耗时:\(ss)秒"
+        return str
+        
+    }
     
+    func showAlert()  {
+        
+        mainWindowC.stopRunningAni()
+        endTime = NSDate()
+        let alert:NSAlert = NSAlert()
+        alert.messageText = showTime()
+        alert.alertStyle = NSAlert.Style.informational
+        alert.runModal()
+    }
     
     
     

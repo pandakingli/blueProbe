@@ -58,7 +58,7 @@ class probeGo {
     }
 
     func doMakeG() {
-      
+      BPSettingCenter.sharedInstance.setStart()
         switch BPSettingCenter.sharedInstance.mode
         {
             case .inheritGO:
@@ -115,6 +115,7 @@ class probeGo {
             semaphore.wait()
             DispatchQueue.global().async {
                 parseObjcClass(file)
+                BPSettingCenter.sharedInstance.addObjc()
                 self.semaphore.signal()
             }
         }
@@ -124,6 +125,7 @@ class probeGo {
             semaphore.wait()
             DispatchQueue.global().async {
                 parseSwiftClass(file)
+                BPSettingCenter.sharedInstance.addSwift()
                 self.semaphore.signal()
             }
         }
@@ -132,7 +134,7 @@ class probeGo {
         
         //获取父类 Set 供选择
         BPSettingCenter.sharedInstance.filterSet.removeAllObjects()
-        
+        BPSettingCenter.sharedInstance.setEnd()
         for item in classes
         {
             if (item.superKlass != nil)
@@ -158,7 +160,7 @@ class probeGo {
             ssuperSelect.addItems(withTitles: arr as! [String])
             ssuperSelect.selectItem(at: 0)
             
-            BPSettingCenter.sharedInstance.mainWindowC.stopRunningAni()
+            BPSettingCenter.sharedInstance.showAlert()
             
         })
         
