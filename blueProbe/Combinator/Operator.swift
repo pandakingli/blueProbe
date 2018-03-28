@@ -10,16 +10,12 @@
 import Foundation
 import Runes
 
-
-precedencegroup ErrorMessagePrecedence {
+precedencegroup ErrorMessagePrecedence
+{
     associativity: left
     higherThan: LogicalConjunctionPrecedence
     lowerThan: ComparisonPrecedence
 }
-
-
-
-
 
 /**
  custom operator
