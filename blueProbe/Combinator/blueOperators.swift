@@ -17,17 +17,21 @@ precedencegroup ConvertPrecedence {
 
 
 infix operator ~>- : ConvertPrecedence
-func ~>- <T, U>(_ lhs: Parser<T>, _ transfrom: @escaping (T) -> U) -> Parser<U> {
+
+func ~>- <T, U>(_ lhs: Parser<T>, _ transfrom: @escaping (T) -> U) -> Parser<U>
+{
     return lhs.bluemap { transfrom($0) }
 }
 
-func ~>- <T, U>(_ lhs: Parser<[T]>, _ transfrom: @escaping (T) -> U) -> Parser<[U]> {
+func ~>- <T, U>(_ lhs: Parser<[T]>, _ transfrom: @escaping (T) -> U) -> Parser<[U]>
+{
     return lhs.bluemap { list in
         list.map { transfrom($0) }
     }
 }
 
-func ~>- <T, U>(_ lhs: Parser<[T]?>, _ transfrom: @escaping (T) -> U) -> Parser<[U]> {
+func ~>- <T, U>(_ lhs: Parser<[T]?>, _ transfrom: @escaping (T) -> U) -> Parser<[U]>
+{
     return lhs.bluemap { list in
         if let list = list {
             return list.map { transfrom($0) }
@@ -67,17 +71,21 @@ func ~>* <T, U>(f: @escaping (T) -> U, p: Parser<T>) -> Parser<U> {
 }
 
 /// 顺序执行两个parser，最后直接抛弃左侧parser的结果，返回右侧parser的结果
-func *> <T, U>(lhs: Parser<T>, rhs: Parser<U>) -> Parser<U> {
+func *> <T, U>(lhs: Parser<T>, rhs: Parser<U>) -> Parser<U>
+{
     return Parser<U> { (tokens) -> Result<(U, Tokens)> in
-        let lresult = lhs.parse(tokens)
-        guard let l = lresult.value else {
-            return .failure(lresult.error!)
-        }
+       
+                let lresult = lhs.parse(tokens)
+                guard let l = lresult.value
+                    else {
+                    return .failure(lresult.error!)
+                }
         
-        let rresult = rhs.parse(l.1)
-        guard let r = rresult.value else {
-            return .failure(rresult.error!)
-        }
+                let rresult = rhs.parse(l.1)
+                guard let r = rresult.value
+                    else {
+                    return .failure(rresult.error!)
+                     }
         
         return .success(r)
     }
