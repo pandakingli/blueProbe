@@ -17,46 +17,51 @@ class probeGo {
     var styleStr: String = "dot"
     var outStr: String = "svg"
     
-    var bp_paths: String = "" {
-       
-        didSet {
+    var bp_paths: String = "" { didSet { setUpFiles() }  }
+
+     ///bp_paths属性变化后，处理一下
+    func setUpFiles()
+    {
+        let pathValues = bp_paths.split(separator: ",")
+        
+        files.removeAll()
+        
+        for path in pathValues
+        {
             
-            let pathValues = bp_paths.split(separator: ",")
-            files.removeAll()
-    
-                for path in pathValues {
-                    
-                    var isDir: ObjCBool = ObjCBool.init(false)
-                    
-                    if FileManager.default.fileExists(atPath: String(path), isDirectory: &isDir) {
-                      
+            var isDir: ObjCBool = ObjCBool.init(false)
+            
+            if FileManager.default.fileExists(atPath: String(path), isDirectory: &isDir)
+            {
+                
+                    if isDir.boolValue, let enumerator = FileManager.default.enumerator(atPath: String(path))
+                    {
                         
-                        if isDir.boolValue, let enumerator = FileManager.default.enumerator(atPath: String(path)) {
+                        while let file = enumerator.nextObject() as? String
+                        {
                             
-                            while let file = enumerator.nextObject() as? String {
-                                
-                                if supported(file)
-                                {
-                                    files.append("\(path)/\(file)")
-                                }
-                                
+                            if supported(file)
+                            {
+                                files.append("\(path)/\(file)")
                             }
                             
-                            
-                        }
-                        else
-                        {
-                            files = [String(path)]
-                        }
+                        }//while
+                        
                     }
                     else
                     {
-                        print("File: \(path) not exist")
+                        files = [String(path)]
                     }
-                }
+                
+            } //if FileManager.default
+            else
+            {
+                print("File: \(path) not exist")
+            }
         }
-    }
-
+        
+    }//func setUpFiles()
+    
     func doMakeG() {
       BPSettingCenter.sharedInstance.setStart()
         switch BPSettingCenter.sharedInstance.mode
