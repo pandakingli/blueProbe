@@ -22,7 +22,7 @@ class probeGo {
         didSet {
             
             let pathValues = bp_paths.split(separator: ",")
-            
+            files.removeAll()
     
                 for path in pathValues {
                     
@@ -143,9 +143,6 @@ class probeGo {
             }
         }
         
-        let ssuperSelect = BPSettingCenter.sharedInstance.mainWindowC.superSelect!
-        
-        
         let  arr = NSMutableArray()
         
         for item in BPSettingCenter.sharedInstance.filterSet {
@@ -156,10 +153,8 @@ class probeGo {
         BPSettingCenter.sharedInstance.kClasses = classes
         
         DispatchQueue.main.async(execute: {
-            ssuperSelect.removeAllItems()
-            ssuperSelect.addItems(withTitles: arr as! [String])
-            ssuperSelect.selectItem(at: 0)
             
+            BPSettingCenter.sharedInstance.resetSuperSelect(arr)
             BPSettingCenter.sharedInstance.showAlert()
             
         })

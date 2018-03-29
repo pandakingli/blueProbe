@@ -127,7 +127,7 @@ class BPSettingCenter: NSObject {
     
     func setStart()  {
         startTime = NSDate()
-        objcNum = 0;
+        objcNum = 0
         swiftNum = 0
     }
     
@@ -154,8 +154,24 @@ class BPSettingCenter: NSObject {
         alert.runModal()
     }
     
+    func cleanAll()  {
+        
+        objcNum = 0
+        swiftNum = 0
+        kClasses.removeAll()
+        filterSet.removeAllObjects()
+    }
     
+    func resetSuperSelect(_ arr:NSMutableArray)  {
+        
+        let ssuperSelect = BPSettingCenter.sharedInstance.mainWindowC.superSelect!
+        ssuperSelect.removeAllItems()
+        ssuperSelect.addItems(withTitles: arr as! [String])
+        ssuperSelect.selectItem(at: 0)
+        
+    }
     
+
     
     
     

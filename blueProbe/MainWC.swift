@@ -103,10 +103,17 @@ class MainWC: NSWindowController {
             
             if result.rawValue == NSFileHandlingPanelOKButton {
 
+                
                 print("NSFileHandlingPanelOKButton")
                 print(self.openPP.url?.path as Any)
                 self.pathstr.stringValue = (self.openPP.url?.path)!
                 let center  = BPSettingCenter.sharedInstance
+                
+                self.superSelect.removeAllItems()
+                self.superSelect.addItems(withTitles: ["NSObject"] )
+                self.superSelect.selectItem(at: 0)
+                
+                center.cleanAll()
                 center.saveKeyPath(kPath: self.pathstr.stringValue)
             }
             
