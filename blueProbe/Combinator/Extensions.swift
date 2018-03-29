@@ -50,7 +50,7 @@ extension Parser {
     
     /// 仅当self成功，other失败时才会返回成功，other不会消耗任何输入
     func notFollowedBy<U>(_ other: Parser<U>) -> Parser<T> {
-        return self.flatMap { result in
+        return self.blueFlat { result in
             Parser<T> { (tokens) -> Result<(T, Tokens)> in
                 if case .failure(_) = other.parse(tokens) { // other失败才会返回成功
                     return .success((result, tokens))

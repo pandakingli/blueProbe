@@ -68,10 +68,21 @@ extension OCInterfaceParser {
         let lAngle = token(.leftAngle)
         let rAngle = token(.rightAngle)
         
+        /*
         // @interface xx(xx?) <xx, xx>
         return curry(BPClassNode.init)
             ~>* token(.interface) *> token(.name) ~>- go2String
             *<~ trying(token(.name)).between(lParen, rParen) *> pure(nil) // 分类的名字是可选项, 忽略结果
             *<~ trying(token(.name).separateBy(token(.comma)).between(lAngle, rAngle)) ~>- go2String // 协议列表
+        */
+        
+        
+        let  parserClassName      = token(.interface) *> token(.name) ~>- go2String // 类名
+        let  parserCat            = trying(token(.name)).between(lParen, rParen)
+        let  parserProtocols      = trying(token(.name).separateBy(token(.comma)).between(lAngle, rAngle)) ~>- go2String // 协议列表
+        
+        let  goParser = curry(BPClassNode.init) ~>* parserClassName *<~ parserCat *> pure(nil) *<~ parserProtocols
+        
+        return goParser
     }
 }

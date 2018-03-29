@@ -72,6 +72,33 @@ extension Parser {
         }
     }
     
+    func blueFlat<U>(_ f: @escaping (T) -> Parser<U>) -> Parser<U> {
+        return Parser<U> { (tokens) -> Result<(U, Tokens)> in
+            
+            
+            switch self.parse(tokens) {
+            case .success(let (result, rest)):
+                let p = f(result)
+                return p.parse(rest)
+                
+            case .failure(let error):
+                return .failure(error)
+            }
+        }
+    }
+    
+    func or(_ other: Parser<T>) -> Parser<T> {
+        return Parser(parse: { (tokens) -> Result<(T, Tokens)> in
+            let r = self.parse(tokens)
+            switch r {
+            case .success(_):
+                return r
+            case .failure(_):
+                return other.parse(tokens) // 左侧失败时不消耗输入
+            }
+        })
+    }
+    
     /// 将执行结果转换成optional的版本
     var optional: Parser<T?> {
         return self.bluemap { (result) -> T? in

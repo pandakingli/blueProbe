@@ -105,42 +105,14 @@ func <|> <T>(lhs: Parser<T>, rhs: Parser<T>) -> Parser<T> {
     return lhs.or(rhs)
 }
 
-extension Parser {
-    func or(_ other: Parser<T>) -> Parser<T> {
-        return Parser(parse: { (tokens) -> Result<(T, Tokens)> in
-            let r = self.parse(tokens)
-            switch r {
-            case .success(_):
-                return r
-            case .failure(_):
-                return other.parse(tokens) // 左侧失败时不消耗输入
-            }
-        })
-    }
-}
-
 
 func >>- <T, U>(lhs: Parser<T>, rhs: @autoclosure @escaping (T) -> Parser<U>) -> Parser<U> {
-    return lhs.flatMap(rhs)
+    return lhs.blueFlat(rhs)
 }
 
 func -<< <T, U>(lhs: @autoclosure @escaping (T) -> Parser<U>, rhs: Parser<T>) -> Parser<U> {
-    return rhs.flatMap(lhs)
+    return rhs.blueFlat(lhs)
 }
 
-extension Parser {
-    func flatMap<U>(_ f: @escaping (T) -> Parser<U>) -> Parser<U> {
-        return Parser<U> { (tokens) -> Result<(U, Tokens)> in
-      
-            
-            switch self.parse(tokens) {
-            case .success(let (result, rest)):
-                let p = f(result)
-                return p.parse(rest)
-                
-            case .failure(let error):
-                return .failure(error)
-            }
-        }
-    }
-}
+
+
