@@ -77,11 +77,10 @@ extension OCInterfaceParser {
         */
         
         
+
         let  parserClassName      = token(.interface) *> token(.name) ~>- go2String // 类名
-        let  parserCat            = trying(token(.name)).between(lParen, rParen) *> pure(nil)!
+        let  parserCat            = trying(token(.name)).between(lParen, rParen) *> pure("") //分类的名字 忽略掉
         let  parserProtocols      = trying(token(.name).separateBy(token(.comma)).between(lAngle, rAngle)) ~>- go2String // 协议列表
-        
-        let  goParser = curry(BPClassNode.init) ~>* parserClassName *<~ parserCat *<~ parserProtocols
         
         return goParser
     }
