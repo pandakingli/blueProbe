@@ -139,7 +139,7 @@ class BPSettingCenter: NSObject {
     func showTime()->String!  {
         let seconds = endTime.timeIntervalSince(startTime as Date)
         let ss = Int(round(seconds))
-        let str = "OC文件:\(objcNum)\n swift文件:\(swiftNum) \n 耗时:\(ss)秒"
+        let str = " OC文件:\(objcNum)\n swift文件:\(swiftNum) \n 耗时:\(ss)秒"
         return str
         
     }
