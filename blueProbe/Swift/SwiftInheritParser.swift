@@ -37,19 +37,27 @@ class SwiftInheritParser: ParserType {
     var parser: Parser<([BPProtocolNode], [BPClassNode])> {
         // 合并protocol和class的解析结果
         return inheritParser.bluemap { (result) -> ([BPProtocolNode], [BPClassNode]) in
+           
             var (protocols, classes) = result.separate()
+           
             classes = classes.distinct
             
             var set = Set<String>()
-            for proto in protocols {
+            
+            for proto in protocols
+            {
                 set.insert(proto.name)
             }
-            for cls in classes {
-                if let name = cls.superKlass, set.contains(name) {
+            
+            for cls in classes
+            {
+                if let name = cls.superKlass, set.contains(name)
+                {
                     cls.superKlass = nil
                     cls.kprotocols.insert(name, at: 0)
                 }
             }
+            
             return (protocols, classes)
         }
     }
@@ -57,9 +65,12 @@ class SwiftInheritParser: ParserType {
 
 fileprivate extension SwiftInheritParser {
     var inheritParser: Parser<[Intermediate]> {
-        let intermediate
-            = curry(Intermediate.proto) ~>* SwiftProtocolParser().protocolParser
-                <|> curry(Intermediate.cls) ~>* SwiftClassParser().classParser
+        
+        let curryA = curry(Intermediate.proto) ~>* SwiftProtocolParser().protocolParser
+        let curryB = curry(Intermediate.cls) ~>* SwiftClassParser().classParser
+       
+        let intermediate = curryA <|> curryB
+        
         return intermediate.continuous
     }
 }
