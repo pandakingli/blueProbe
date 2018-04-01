@@ -185,6 +185,10 @@ class probeGo {
  */
     }
     
+  fileprivate func createInvokeGraph() {
+    
+    }
+    
     func goDoBNode()
     {
         var ccArr:[BPClassNode]=[]
