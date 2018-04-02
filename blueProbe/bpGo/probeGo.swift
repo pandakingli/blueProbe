@@ -185,7 +185,8 @@ class probeGo {
  */
     }
     
-  fileprivate func createInvokeGraph() {
+  fileprivate func createInvokeGraph()
+  {
     
     }
     
