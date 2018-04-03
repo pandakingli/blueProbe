@@ -5,4 +5,5 @@ target "blueProbe" do
 pod 'Curry'
 pod 'Runes'
 pod 'lottie-ios'
+pod 'SwiftHash'
 end
