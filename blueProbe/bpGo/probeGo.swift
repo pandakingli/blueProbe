@@ -16,7 +16,7 @@ class probeGo {
     var keywords: [String] = []
     var styleStr: String = "dot"
     var outStr: String = "svg"
-    
+     var selfOnly: Bool = false // 只包含定义在用户代码中的方法节点
     var bp_paths: String = "" { didSet { setUpFiles() }  }
 
      ///bp_paths属性变化后，处理一下
@@ -74,7 +74,65 @@ class probeGo {
         }
         
     }
+    func filted(_ methods: [BPMethodNode]) -> [BPMethodNode] {
+        var methods = methods
+        methods = filtedSelfMethod(methods)
+        methods = extractSubtree(methods)
+        return methods
+    }
+    /// 仅保留自定义方法之间的调用
+    func filtedSelfMethod(_ methods: [BPMethodNode]) -> [BPMethodNode] {
+        if selfOnly {
+            var selfMethods = Set<Int>()
+            for method in methods {
+                selfMethods.insert(method.hashValue)
+            }
+            
+            return methods.map({ (method) -> BPMethodNode in
+                var selfInvokes = [BPInvokeNode]()
+                for invoke in method.invokes {
+                    if selfMethods.contains(invoke.hashValue) {
+                        selfInvokes.append(invoke)
+                    }
+                }
+                method.invokes = selfInvokes
+                return method
+            })
+        }
+        return methods
+    }
     
+    /// 根据关键字提取子树
+    func extractSubtree(_ nodes: [BPMethodNode]) -> [BPMethodNode] {
+        guard keywords.count != 0, nodes.count != 0 else {
+            return nodes
+        }
+        
+        // 过滤出包含keyword的根节点
+        var subtrees: [BPMethodNode] = []
+        let filted = nodes.filter {
+            $0.description.contains(keywords)
+        }
+        subtrees.append(contentsOf: filted)
+        
+        // 递归获取节点下面的调用分支
+        func selfInvokes(_ invokes: [BPInvokeNode], _ subtrees: [BPMethodNode]) -> [BPMethodNode] {
+            guard invokes.count != 0 else {
+                return subtrees
+            }
+            
+            let methods = nodes.filter({ (method) -> Bool in
+                invokes.contains(where: { $0.hashValue == method.hashValue }) &&
+                    !subtrees.contains(where: { $0.hashValue == method.hashValue })
+            })
+            
+            return selfInvokes(methods.reduce([], { $0 + $1.invokes}), methods + subtrees)
+        }
+        
+        subtrees.append(contentsOf: selfInvokes(filted.reduce([], { $0 + $1.invokes}), subtrees))
+        
+        return subtrees
+    }
     
     // MARK: - Private
     
@@ -187,8 +245,22 @@ class probeGo {
     
   fileprivate func createInvokeGraph()
   {
+  
+    let results = parseMethods(files: files)
     
+
+    var outputFiles = [String]()
+    for (file, nodes) in results
+    {
+        //outputFiles.append(GraphMaker.generate(classes: filted(nodes), protocols: [], filePath: file, styleStr: "", outStr: ""))
     }
+    
+
+    if outputFiles.count == 1
+    {
+        GoMaker.execute("open", outputFiles[0], help: "Auto open failed")
+    }
+}
     
     
     func parseMethods(files: [String]) -> [String: [BPMethodNode]]
