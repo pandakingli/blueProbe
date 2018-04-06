@@ -26,6 +26,10 @@
 		E62DF9FA2073D4D000D4CC1F /* BPMethodNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DF9F92073D4D000D4CC1F /* BPMethodNode.swift */; };
 		E62DF9FC2073D52000D4CC1F /* BPInvokeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DF9FB2073D52000D4CC1F /* BPInvokeNode.swift */; };
 		E62DF9FE2073D7DB00D4CC1F /* MD5Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DF9FD2073D7DB00D4CC1F /* MD5Plus.swift */; };
+		E62DFA002077221800D4CC1F /* SwiftMethodParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DF9FF2077221800D4CC1F /* SwiftMethodParser.swift */; };
+		E62DFA022077223500D4CC1F /* OCMethodParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DFA012077223500D4CC1F /* OCMethodParser.swift */; };
+		E62DFA042077245E00D4CC1F /* OCMessageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DFA032077245E00D4CC1F /* OCMessageParser.swift */; };
+		E62DFA062077282900D4CC1F /* SwiftInvokeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62DFA052077282900D4CC1F /* SwiftInvokeParser.swift */; };
 		E645EE152057C88B0049C2D0 /* BPSettingCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E645EE142057C88B0049C2D0 /* BPSettingCenter.swift */; };
 		E645EE1920580FAF0049C2D0 /* pencil_write.json in Resources */ = {isa = PBXBuildFile; fileRef = E645EE1820580FAF0049C2D0 /* pencil_write.json */; };
 		E645EE1F205904A70049C2D0 /* material_wave_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = E645EE1D205904A70049C2D0 /* material_wave_loading.json */; };
@@ -64,6 +68,10 @@
 		E62DF9F92073D4D000D4CC1F /* BPMethodNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMethodNode.swift; sourceTree = "<group>"; };
 		E62DF9FB2073D52000D4CC1F /* BPInvokeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPInvokeNode.swift; sourceTree = "<group>"; };
 		E62DF9FD2073D7DB00D4CC1F /* MD5Plus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Plus.swift; sourceTree = "<group>"; };
+		E62DF9FF2077221800D4CC1F /* SwiftMethodParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMethodParser.swift; sourceTree = "<group>"; };
+		E62DFA012077223500D4CC1F /* OCMethodParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCMethodParser.swift; sourceTree = "<group>"; };
+		E62DFA032077245E00D4CC1F /* OCMessageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCMessageParser.swift; sourceTree = "<group>"; };
+		E62DFA052077282900D4CC1F /* SwiftInvokeParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftInvokeParser.swift; sourceTree = "<group>"; };
 		E645EE142057C88B0049C2D0 /* BPSettingCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPSettingCenter.swift; sourceTree = "<group>"; };
 		E645EE1820580FAF0049C2D0 /* pencil_write.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pencil_write.json; sourceTree = "<group>"; };
 		E645EE1D205904A70049C2D0 /* material_wave_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = material_wave_loading.json; sourceTree = "<group>"; };
@@ -112,6 +120,8 @@
 				0A8AA8DE2043AFCA00B3992D /* BPProtocolNode.swift */,
 				E62DF9F92073D4D000D4CC1F /* BPMethodNode.swift */,
 				E62DF9FB2073D52000D4CC1F /* BPInvokeNode.swift */,
+				E62DFA012077223500D4CC1F /* OCMethodParser.swift */,
+				E62DFA032077245E00D4CC1F /* OCMessageParser.swift */,
 			);
 			path = Objc;
 			sourceTree = "<group>";
@@ -123,6 +133,8 @@
 				0A8AA8FF2044040400B3992D /* SwiftProtocolParser.swift */,
 				0A8AA9012044041C00B3992D /* SwiftClassParser.swift */,
 				E62DF9FD2073D7DB00D4CC1F /* MD5Plus.swift */,
+				E62DF9FF2077221800D4CC1F /* SwiftMethodParser.swift */,
+				E62DFA052077282900D4CC1F /* SwiftInvokeParser.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -347,6 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E62DFA042077245E00D4CC1F /* OCMessageParser.swift in Sources */,
 				0A8AA9082044094900B3992D /* GoMaker.swift in Sources */,
 				E65EB9C32041599B0080578D /* probeGo.swift in Sources */,
 				0A8AA9022044041C00B3992D /* SwiftClassParser.swift in Sources */,
@@ -354,9 +367,11 @@
 				0A8AA8E72043B44600B3992D /* Parser.swift in Sources */,
 				0A8AA8F82043BCD300B3992D /* ParserResult.swift in Sources */,
 				0A8AA8E12043B10D00B3992D /* Lexer.swift in Sources */,
+				E62DFA022077223500D4CC1F /* OCMethodParser.swift in Sources */,
 				0A8AA9062044076E00B3992D /* GraphMaker.swift in Sources */,
 				E62DF9D62069308B00D4CC1F /* blueOperators.swift in Sources */,
 				0A8AA8F42043B9E800B3992D /* Operator.swift in Sources */,
+				E62DFA062077282900D4CC1F /* SwiftInvokeParser.swift in Sources */,
 				0A8AA9002044040400B3992D /* SwiftProtocolParser.swift in Sources */,
 				0A8AA9042044071000B3992D /* Extension.swift in Sources */,
 				E6CF0E2F201AAC050009A17C /* MainWC.swift in Sources */,
@@ -371,6 +386,7 @@
 				0A8AA8DF2043AFCA00B3992D /* BPProtocolNode.swift in Sources */,
 				E62DF9FA2073D4D000D4CC1F /* BPMethodNode.swift in Sources */,
 				0A8AA8E32043B15300B3992D /* Token.swift in Sources */,
+				E62DFA002077221800D4CC1F /* SwiftMethodParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

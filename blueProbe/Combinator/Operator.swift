@@ -14,7 +14,7 @@ precedencegroup ErrorMessagePrecedence
 {
     associativity: left
     higherThan: LogicalConjunctionPrecedence
-    lowerThan: ComparisonPrecedence
+    lowerThan: RunesAlternativePrecedence
 }
 
 /**

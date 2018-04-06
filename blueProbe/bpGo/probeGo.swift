@@ -190,6 +190,45 @@ class probeGo {
     
     }
     
+    
+    func parseMethods(files: [String]) -> [String: [BPMethodNode]]
+    {
+        var results = [String: [BPMethodNode]]()
+        
+        func runParse(_ file: String) -> [BPMethodNode]
+        {
+            print("Parsing \(file)...")
+            let tokens = SourceLexer(file: file).allTokens
+            var nodes = [BPMethodNode]()
+            
+            if file.isSwift
+            {
+                let result = SwiftMethodParser().parser.run(tokens) ?? []
+                nodes.append(contentsOf: result)
+            }
+            else
+            {
+                let result = OCMethodParser().parser.run(tokens) ?? []
+                nodes.append(contentsOf: result)
+            }
+            return nodes
+        }
+        
+        // 1. 解析方法调用
+        let sources = files.filter({ !$0.hasSuffix(".h") })
+        for file in sources {
+            semaphore.wait()
+            DispatchQueue.global().async {
+                results[file] = runParse(file)
+                self.semaphore.signal()
+            }
+        }
+        
+        waitUntilFinished()
+        
+        return results
+    }
+    
     func goDoBNode()
     {
         var ccArr:[BPClassNode]=[]
