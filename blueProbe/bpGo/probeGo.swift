@@ -252,7 +252,7 @@ class probeGo {
     var outputFiles = [String]()
     for (file, nodes) in results
     {
-        //outputFiles.append(GraphMaker.generate(classes: filted(nodes), protocols: [], filePath: file, styleStr: "", outStr: ""))
+        outputFiles.append(GraphMaker.Gogenerate(filted(nodes), filePath: file))
     }
     
 
@@ -351,6 +351,10 @@ class probeGo {
             semaphore.signal()
         }
     }
+    
+    
+    
+    
 }
 
 

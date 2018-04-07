@@ -85,6 +85,51 @@ class GraphMaker {
         return dot.create(file: filePath, styleStr: styleStr, outStr: outStr)
     }
     
+    
+    @discardableResult
+    static func Gogenerate(_ methods: [BPMethodNode], filePath: String) -> String {
+        // 生成Dot描述
+        let dot = GraphMaker()
+        dot.begin(name: "CallGraph")
+        
+        var nodesSet = Set<Int>()
+        var relationSet = Set<String>() // 避免重复连线
+        
+        for method in methods {
+            // 添加节点定义
+            if !nodesSet.contains(method.hashValue) {
+                dot.append(method, label: method.description)
+                nodesSet.insert(method.hashValue)
+            }
+            
+            for invoke in method.invokes
+            {
+                if !nodesSet.contains(invoke.hashValue)
+                {
+                    // 优先显示详细的信息
+                    if let index = methods.index(where: { $0.hashValue == invoke.hashValue }) {
+                        dot.append(methods[index], label: methods[index].description)
+                        nodesSet.insert(methods[index].hashValue)
+                    } else {
+                        dot.append(invoke, label: invoke.description)
+                        nodesSet.insert(invoke.hashValue)
+                    }
+                }
+                
+                let relation = "\(method.hashValue)\(invoke.hashValue)"
+                if !relationSet.contains(relation) && method.hashValue != invoke.hashValue {
+                    dot.point(from: method, to: invoke)
+                    relationSet.insert(relation)
+                }
+            }
+        }
+        
+        dot.end()
+        
+        return dot.create(file: filePath, styleStr: "", outStr: "")
+    }
+
+    
     //Swift3.0 iOS获取当前时间 - 年月日时分秒星期
     
     func getTimes() -> [Int] {
