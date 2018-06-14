@@ -114,13 +114,13 @@ func <|> <T>(lhs: Parser<T>, rhs: Parser<T>) -> Parser<T> {
 }
 
 
-func >>- <T, U>(lhs: Parser<T>, rhs: @autoclosure @escaping (T) -> Parser<U>) -> Parser<U> {
-    return lhs.blueFlat(rhs)
-}
-
-func -<< <T, U>(lhs: @autoclosure @escaping (T) -> Parser<U>, rhs: Parser<T>) -> Parser<U> {
-    return rhs.blueFlat(lhs)
-}
+//func >>- <T, U>(lhs: Parser<T>, rhs: @autoclosure @escaping (T) -> Parser<U>) -> Parser<U> {
+//    return lhs.blueFlat(rhs)
+//}
+//
+//func -<< <T, U>(lhs: @autoclosure @escaping (T) -> Parser<U>, rhs: Parser<T>) -> Parser<U> {
+//    return rhs.blueFlat(lhs)
+//}
 
 
 
