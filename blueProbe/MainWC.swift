@@ -33,9 +33,9 @@ class MainWC: NSWindowController {
     
     let openPP = NSOpenPanel()
     let gMaker = probeGo()
-    let animationViewDef = LOTAnimationView(name: "dna_like_loader")
-    let animationView = LOTAnimationView(name: "material_wave_loading")
-    let animationViewDone = LOTAnimationView(name: "checked_done_")
+    let animationViewDef = AnimationView(name: "dna_like_loader")
+    let animationView = AnimationView(name: "material_wave_loading")
+    let animationViewDone = AnimationView(name: "checked_done_")
     override func windowDidLoad() {
         super.windowDidLoad()
         self.window?.backgroundColor = NSColor.white
@@ -77,7 +77,8 @@ class MainWC: NSWindowController {
         self.animationView.isHidden = true
         self.animationViewDef.isHidden = false
         
-        self.animationViewDef.loopAnimation = true
+        self.animationViewDef.loopMode = LottieLoopMode.loop
+        
         self.animationViewDef.play()
         
         let center  = BPSettingCenter.sharedInstance
@@ -176,7 +177,7 @@ class MainWC: NSWindowController {
         
         self.animationViewDone.isHidden = true
         self.animationView.isHidden = false
-        self.animationView.loopAnimation = true
+        self.animationView.loopMode = LottieLoopMode.loop
         self.animationView.play()
         
     }
@@ -186,7 +187,7 @@ class MainWC: NSWindowController {
         self.animationViewDef.stop()
         
         self.animationView.isHidden = true
-        self.animationView.loopAnimation = false
+        self.animationView.loopMode = LottieLoopMode.loop
         self.animationView.stop()
         
         self.animationViewDone.isHidden=false
