@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Cocoa
 
 
 class GoMaker {
@@ -25,6 +26,11 @@ class GoMaker {
         // check which
         guard FileManager.default.fileExists(atPath: "/usr/bin/which") else {
             print("Error: missing command: /usr/bin/which")
+            let alert:NSAlert = NSAlert()
+            alert.messageText = "Error: missing command: /usr/bin/which！"
+            alert.alertStyle = NSAlert.Style.informational
+            alert.runModal()
+
             return ""
         }
         
@@ -45,12 +51,15 @@ class GoMaker {
         
         guard let path = pathForExecutable(executable: executable) else {
             print("Error: '\(executable)' not exist! \(help)")
+            let alert:NSAlert = NSAlert()
+            alert.messageText = "Error: '\(executable)' not exist! \(help)"
+            alert.alertStyle = NSAlert.Style.informational
+            alert.runModal()
             return ""
         }
- 
         
         let process = Process()
-        process.launchPath = path//"/usr/local/bin/dot" // path
+        process.launchPath = path
         process.arguments = args
         
         let command = Command(process: process)
@@ -70,40 +79,23 @@ class GoMaker {
 fileprivate class Command {
     
     private let outputHandle: FileHandle
-    private let erroutputHandle: FileHandle
     private let process: Process
-    private var outstring:String
     
     init(process: Process) {
         self.process = process
-        self.outstring = ""
-        let pipe = Pipe()
-        let errpipe = Pipe()
-        self.process.standardOutput = pipe
-        self.process.standardError = errpipe
         
+        let pipe = Pipe()
+        self.process.standardOutput = pipe
         outputHandle = pipe.fileHandleForReading
-        erroutputHandle = errpipe.fileHandleForReading
     }
     
     func launch() {
         process.launch()
-         process.waitUntilExit()
-        let data = outputHandle.readDataToEndOfFile()
-        
-        let errdata = erroutputHandle.readDataToEndOfFile()
-        
-            //outputHandle.readDataToEndOfFile()
-       // outpipe.fileHandleForReading.availableData
-        outstring =  String(data: data, encoding: .utf8) ?? ""
-        
-       
+        process.waitUntilExit()
     }
     
     lazy var stdout: String = {
-        //let data = outputHandle.readDataToEndOfFile()
-        //return String(data: data, encoding: .utf8) ?? ""
-        
-        return self.outstring
+        let data = outputHandle.readDataToEndOfFile()
+        return String(data: data, encoding: .utf8) ?? ""
     }()
 }
