@@ -38,7 +38,7 @@ class MainWC: NSWindowController {
     let animationViewDone = AnimationView(name: "checked_done_")
     override func windowDidLoad() {
         super.windowDidLoad()
-        self.window?.backgroundColor = NSColor.white
+        self.window?.backgroundColor = NSColor.gray
         self.window?.title = "蓝色探针"
         
         self.outButton.removeAllItems()

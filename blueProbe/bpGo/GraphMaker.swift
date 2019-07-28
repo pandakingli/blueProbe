@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Cocoa
 
 /// 遍历AST并生成dot
 class GraphMaker {
@@ -194,15 +194,28 @@ class GraphMaker {
         if FileManager.default.fileExists(atPath: dotFile) {
             try? FileManager.default.removeItem(at: URL(fileURLWithPath: dotFile))
         }
-        _ = FileManager.default.createFile(atPath: dotFile, contents: dot.data(using: .utf8), attributes: nil)
+        let createFileOK = FileManager.default.createFile(atPath: dotFile, contents: dot.data(using: .utf8), attributes: nil)
         
-        // 生成png
-        GoMaker.execute(styleStr, "-T", outStr, dotFile, "-o", "\(target)", help: "Make sure Graphviz is successfully installed.")
+        if createFileOK {
+            
+        } else {
+            
+        }
         
-        // 删除.dot文件
-        //try? FileManager.default.removeItem(at: URL(fileURLWithPath: dotFile))
+        if FileManager.default.fileExists(atPath: dotFile) {
+            // 生成png
+            GoMaker.execute(styleStr, "-T", outStr, dotFile, "-o", "\(target)", help: "Make sure Graphviz is successfully installed.")
+            // 删除.dot文件
+            //try? FileManager.default.removeItem(at: URL(fileURLWithPath: dotFile))
+        } else {
+            let alert:NSAlert = NSAlert()
+            alert.messageText = "dot 文件创建失败！"
+            alert.alertStyle = NSAlert.Style.informational
+            alert.runModal()
+        }
+
+          return target
         
-        return target
     }
 }
 
