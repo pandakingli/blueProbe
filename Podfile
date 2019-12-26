@@ -1,4 +1,4 @@
-
+source 'https://github.com/CocoaPods/Specs.git'
 platform :osx,"10.12"
 target "blueProbe" do
   use_frameworks!
