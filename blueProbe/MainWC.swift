@@ -21,7 +21,6 @@ let kOutPutItems = ["svg","png","pdf","bmp","gif","jpeg","jpg","ico","json","psd
 
 class MainWC: NSWindowController {
 
-
     @IBOutlet weak var protoCheck: NSButton!
     @IBOutlet weak var tblrButton: NSPopUpButton!
     @IBOutlet weak var superSelect: NSPopUpButton!
@@ -30,12 +29,13 @@ class MainWC: NSWindowController {
     @IBOutlet weak var styleButton: NSPopUpButton!
     @IBOutlet weak var pathstr: NSTextField!
 
-    
     let openPP = NSOpenPanel()
     let gMaker = probeGo()
     let animationViewDef = AnimationView(name: "dna_like_loader")
     let animationView = AnimationView(name: "material_wave_loading")
     let animationViewDone = AnimationView(name: "checked_done_")
+    
+    // MARK: windowDidLoad
     override func windowDidLoad() {
         super.windowDidLoad()
         self.window?.backgroundColor = NSColor.gray
@@ -69,9 +69,9 @@ class MainWC: NSWindowController {
         
         self.animationViewDef.frame=rrect
         
-         self.window?.contentView?.addSubview(self.animationViewDone)
+        self.window?.contentView?.addSubview(self.animationViewDone)
         self.window?.contentView?.addSubview(self.animationView)
-      self.window?.contentView?.addSubview(self.animationViewDef)
+        self.window?.contentView?.addSubview(self.animationViewDef)
         
         self.animationViewDone.isHidden = true
         self.animationView.isHidden = true
@@ -85,16 +85,14 @@ class MainWC: NSWindowController {
         
         let hiString = center.getKeyPath()
         
-        if hiString != nil
-        {
+        if hiString != nil {
             self.pathstr.stringValue = (hiString)!
         }
         
     }
     
- 
+    // MARK: 获取路径
     @IBAction func getPathBtn(_ sender: Any) {
-        
         
         openPP.allowsMultipleSelection = false
         openPP.canChooseDirectories    = true
@@ -104,8 +102,7 @@ class MainWC: NSWindowController {
             
             if result.rawValue == NSFileHandlingPanelOKButton {
 
-                
-                print("NSFileHandlingPanelOKButton")
+                print("NSFileHandlingPanelOKButton-确定")
                 print(self.openPP.url?.path as Any)
                 self.pathstr.stringValue = (self.openPP.url?.path)!
                 let center  = BPSettingCenter.sharedInstance
@@ -119,23 +116,19 @@ class MainWC: NSWindowController {
             }
             
             if result.rawValue == NSFileHandlingPanelCancelButton {
-                
-                print("NSFileHandlingPanelCancelButton")
-                
-                
+                print("NSFileHandlingPanelCancelButton-取消")
             }
 
-            
         })
 
-        
     }
     
+    // MARK: 退出按钮
     @IBAction func quitBtn(_ sender: Any) {
         exit(0)
     }
     
-    
+    // MARK: 分析按钮
     @IBAction func analyseBtn(_ sender: Any) {
         
      
@@ -160,18 +153,21 @@ class MainWC: NSWindowController {
         }
     }
     
+    // MARK: 开始制图
     @IBAction func makeGraphBtn(_ sender: Any) {
         
         self.stopRunningAni()
         self.updateTBLR()
         BPSettingCenter.sharedInstance.keyClassName = self.superSelect.selectedItem!.title
-
+        if self.superSelect.selectedItem!.title == "全部" {
+            BPSettingCenter.sharedInstance.keyClassName = nil
+        }
         gMaker.goDoBNode()
 
     }
     
-    func startRunningAni()
-    {
+    // MARK: 开始动画
+    func startRunningAni(){
         self.animationViewDef.isHidden = true
         self.animationViewDef.stop()
         
@@ -181,8 +177,9 @@ class MainWC: NSWindowController {
         self.animationView.play()
         
     }
-    func stopRunningAni()
-    {
+    
+    // MARK: 停止动画
+    func stopRunningAni(){
         self.animationViewDef.isHidden = true
         self.animationViewDef.stop()
         
@@ -193,6 +190,8 @@ class MainWC: NSWindowController {
         self.animationViewDone.isHidden=false
         self.animationViewDone.play()
     }
+    
+     // MARK: 获取制图方向
     func updateTBLR()  {
       
         let center  = BPSettingCenter.sharedInstance
@@ -211,11 +210,8 @@ class MainWC: NSWindowController {
         default:
             tblr = "LR"
         }
-        
         center.tblr = tblr
-        
         center.haveProtocols =  self.protoCheck.state.rawValue>0
-        
     }
     
 }
